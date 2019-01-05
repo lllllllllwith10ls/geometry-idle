@@ -38,3 +38,4 @@ function maxAll() {
 		buyMaxGen(i);
 	}
 }
+
