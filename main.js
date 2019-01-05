@@ -115,6 +115,13 @@ function update() {
 		document.getElementById(str).innerHTML = Math.floor(player["tier" + i].amount);
 		document.getElementById("buy" + i).innerHTML = "Cost: " + Math.floor(player["tier" + i].cost);
 		document.getElementById("mult" + i).innerHTML = "x" + Math.floor(getGenMult(i)*10)/10;
+		if(canBuyGen(i)) {
+			document.getElementById("buy" + i).className = "button";
+			document.getElementById("buy" + i + "Max").className = "button";
+		} else {
+			document.getElementById("buy" + i).className = "buttonlocked";
+			document.getElementById("buy" + i + "Max").className = "buttonlocked";
+		}
 	}
 }
 function gameLoop() {
