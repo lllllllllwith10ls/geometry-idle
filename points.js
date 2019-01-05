@@ -21,7 +21,9 @@ function buyGen(tier) {
 	if(canBuyGen(tier)) {
 		player["tier"+tier].bought++;
 		player["tier"+tier].amount++;
+		player.points -= player["tier"+tier].cost;
 		player["tier"+tier].cost *= player["tier"+tier].costMult;
+		
 	}
 }
 
