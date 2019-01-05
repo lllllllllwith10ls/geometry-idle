@@ -89,3 +89,10 @@ function getDefaultSave() {
 	};
 }
 let player = getDefaultSave();
+
+function produce() {
+	player.points += getProductionAmount(1);
+	for(let i = 1; i < 9; i++) {
+		player["tier"+tier].amount += getProductionAmount(i+1);
+	}
+}
