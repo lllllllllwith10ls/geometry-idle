@@ -6,21 +6,24 @@ function getDefaultSave() {
 			amount: 0,
 			multiplier: 1,
 			bought: 0,
-			costMult: 1.15
+			costMult: 1.15,
+			unlocked: true
 		},
 		tier2: {
 			cost: 100,
 			amount: 0,
 			multiplier: 1,
 			bought: 0,
-			costMult: 1.18
+			costMult: 1.18,
+			unlocked: true
 		},
 		tier3: {
 			cost: 1000,
 			amount: 0,
 			multiplier: 1,
 			bought: 0,
-			costMult: 1.21
+			costMult: 1.21,
+			unlocked: true
 		},
 		lines: {
 			upgrades: ["T4","T5","T6","T7","T8","T9","T10","DT1","DT2","DT3","DT4","DT5","DT6","DT7","DT8","DT9","DT10","DG"],
@@ -31,49 +34,56 @@ function getDefaultSave() {
 			amount: 0,
 			multiplier: 1,
 			bought: 0,
-			costMult: 1.24
+			costMult: 1.24,
+			unlocked: false
 		},
 		tier5: {
 			cost: 1e8,
 			amount: 0,
 			multiplier: 1,
 			bought: 0,
-			costMult: 1.27
+			costMult: 1.27,
+			unlocked: false
 		},
 		tier6: {
 			cost: 1e12,
 			amount: 0,
 			multiplier: 1,
 			bought: 0,
-			costMult: 1.3
+			costMult: 1.3,
+			unlocked: false
 		},
 		tier7: {
 			cost: 1e20,
 			amount: 0,
 			multiplier: 1,
 			bought: 0,
-			costMult: 1.33
+			costMult: 1.33,
+			unlocked: false
 		},
 		tier8: {
 			cost: 1e30,
 			amount: 0,
 			multiplier: 1,
 			bought: 0,
-			costMult: 1.36
+			costMult: 1.36,
+			unlocked: false
 		},
 		tier9: {
 			cost: 1e43,
 			amount: 0,
 			multiplier: 1,
 			bought: 0,
-			costMult: 1.39
+			costMult: 1.39,
+			unlocked: false
 		},
 		tier10: {
 			cost: 1e60,
 			amount: 0,
 			multiplier: 1,
 			bought: 0,
-			costMult: 1.42
+			costMult: 1.42,
+			unlocked: false
 		},
 		version: 0
 	};
