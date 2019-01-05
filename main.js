@@ -92,7 +92,7 @@ let player = getDefaultSave();
 
 function produce(fps) {
 	player.points += getProductionAmount(1)/fps;
-	for(let i = 1; i < 9; i++) {
+	for(let i = 1; i < 10; i++) {
 		player["tier"+i].amount += getProductionAmount(i+1)/fps;
 	}
 	update();
@@ -101,7 +101,7 @@ function produce(fps) {
 function update() {
 	
 	document.getElementById("points").innerHTML = Math.floor(player.points);
-	for (var i = 1; i <= 9; i++) {
+	for (var i = 1; i <= 10; i++) {
 		var str = "tier" + i + "Amount";
 		document.getElementById(str).innerHTML = Math.floor(player["tier" + i].amount);
 		document.getElementById("buy" + i).innerHTML = "Cost: " + Math.floor(player["tier" + i].cost);
