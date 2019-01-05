@@ -1,8 +1,10 @@
 <!doctype html>
 <html>
 	<head>
+		<script src="main.js"></script>
+		<script src="points.js"></script>
 	</head>
-	<body>
+	<body onload="startInterval()">
 		<p>You have <span id="points">0</span> points</p>
 		<button onclick="player.points++" class="button">Get points</button>
 		<div id='generators' class='tab' style='display:block'>
