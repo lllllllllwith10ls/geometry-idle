@@ -90,9 +90,25 @@ function getDefaultSave() {
 }
 let player = getDefaultSave();
 
-function produce() {
+function produce(fps) {
 	player.points += getProductionAmount(1);
 	for(let i = 1; i < 9; i++) {
-		player["tier"+tier].amount += getProductionAmount(i+1);
+		player["tier"+tier].amount += getProductionAmount(i+1)/fps;
 	}
+	update();
+}
+
+function update() {
+	for (var i = 1; i <= 9; i++) {
+		var str = "tier" + i + "Amount";
+		document.getElementById(str).innerHTML = Math.floor(player["tier" + i].amount);
+		document.getElementById("buy" + i).innerHTML = "Cost: " + Math.floor(player["tier" + i].cost);
+		document.getElementById("mult" + i).innerHTML = "x" + Math.floor(getGenMult(i)*10)/10;
+	}
+}
+function gameLoop() {
+	produce(33);
+}
+function startInterval() {
+  setInterval(gameLoop, 33);
 }
