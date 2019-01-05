@@ -78,3 +78,4 @@ function getDefaultSave() {
 		version: 0
 	};
 }
+let player = getDefaultSave();
