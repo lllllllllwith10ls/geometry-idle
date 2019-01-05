@@ -11,7 +11,7 @@ function getProductionAmount(tier) {
 }
 
 function canBuyGen(tier) {
-	if(player["tier"+(tier+1)].cost <= player.points && player["tier"+(tier+1)].unlocked) {
+	if(player["tier"+tier].cost <= player.points && player["tier"+tier].unlocked) {
 		return true;
 	}
 	return false;
