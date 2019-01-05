@@ -99,6 +99,8 @@ function produce(fps) {
 }
 
 function update() {
+	
+	document.getElementById("points").innerHTML = Math.floor(player.points);
 	for (var i = 1; i <= 9; i++) {
 		var str = "tier" + i + "Amount";
 		document.getElementById(str).innerHTML = Math.floor(player["tier" + i].amount);
