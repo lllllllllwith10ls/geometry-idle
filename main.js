@@ -93,7 +93,7 @@ let player = getDefaultSave();
 function produce(fps) {
 	player.points += getProductionAmount(1);
 	for(let i = 1; i < 9; i++) {
-		player["tier"+tier].amount += getProductionAmount(i+1)/fps;
+		player["tier"+i].amount += getProductionAmount(i+1)/fps;
 	}
 	update();
 }
