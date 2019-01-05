@@ -3,5 +3,158 @@
 	<head>
 	</head>
 	<body>
+		<p>You have <span id="points">0</span> points</p>
+		<button onclick="player.points++" class="button">Get points</button>
+		<div id='generators' class='tab' style='display:block'>
+			<table style="width:100%">
+				<tbody id="parent">
+					<tr class='verylarge'>
+						<td colspan=4 align="right">
+							<button onclick="maxAll()" class="button">Max All</button>
+						</td>
+					</tr>
+					<tr id="row1">
+						<td>
+							Tier 1 generator <span id="mult1">x1</span>
+						</td>
+						<td>
+							<div id="tier1Amount">0</div>
+						</td>
+						<td>
+							<button id="buy1" onclick="buyGen(1)" align="right" class="button">Cost: 10</button>
+						</td>
+						<td align="right">
+							<button id="buy1Max" onclick="buyMaxGen(1)" align="right" class="button">Buy Max</button>
+						</td>
+					</tr>
+					<tr id="row2" style="display: none;">
+						<td>
+							Tier 2 generator <span id="mult2">x1</span>
+						</td>
+						<td>
+							<div id="tier2Amount">0</div>
+						</td>
+						<td>
+							<button id="buy2" onclick="buyGen(2)" align="right" class="button">Cost: 100</button>
+						</td>
+						<td align="right">
+							<button id="buy2Max" onclick="buyMaxGen(2)" align="right" class="button">Buy Max</button>
+						</td>
+					</tr>
+					<tr id="row3" style="display: none;">
+						<td>
+							Tier 3 generator <span id="mult3">x1</span>
+						</td>
+						<td>
+							<div id="tier3Amount">0</div>
+						</td>
+						<td>
+							<button id="buy3" onclick="buyGen(3)" align="right" class="button">Cost: 1000</button>
+						</td>
+						<td align="right">
+							<button id="buy3Max" onclick="buyMaxGen(3)" align="right" class="button">Buy Max</button>
+						</td>
+					</tr>
+					<tr id="row4" style="display: none;">
+						<td>
+							Tier 4 generator <span id="mult4">x1</span>
+						</td>
+						<td>
+							<div id="tier4Amount">0</div>
+						</td>
+						<td>
+							<button id="buy4" onclick="buyGen(4)" align="right" class="button">Cost: blef</button>
+						</td>
+						<td align="right">
+							<button id="buy4Max" onclick="buyMaxGen(4)" align="right" class="button">Buy Max</button>
+						</td>
+					</tr>
+					<tr id="row5" style="display: none;">
+						<td>
+							Tier 5 generator <span id="mult5">x1</span>
+						</td>
+						<td>
+							<div id="tier5Amount">0</div>
+						</td>
+						<td>
+							<button id="buy5" onclick="buyGen(5)" align="right" class="button">Cost: 1000</button>
+						</td>
+						<td align="right">
+							<button id="buy5Max" onclick="buyMaxGen(5)" align="right" class="button">Buy Max</button>
+						</td>
+					</tr>
+					<tr id="row6" style="display: none;">
+						<td>
+							Tier 6 generator <span id="mult6">x1</span>
+						</td>
+						<td>
+							<div id="tier6Amount">0</div>
+						</td>
+						<td>
+							<button id="buy6" onclick="buyGen(6)" align="right" class="button">Cost: 1000</button>
+						</td>
+						<td align="right">
+							<button id="buy6Max" onclick="buyMaxGen(6)" align="right" class="button">Buy Max</button>
+						</td>
+					</tr>
+					<tr id="row7" style="display: none;">
+						<td>
+							Tier 7 generator <span id="mult7">x1</span>
+						</td>
+						<td>
+							<div id="tier7Amount">0</div>
+						</td>
+						<td>
+							<button id="buy7" onclick="buyGen(7)" align="right" class="button">Cost: 1000</button>
+						</td>
+						<td align="right">
+							<button id="buy7Max" onclick="buyMaxGen(7)" align="right" class="button">Buy Max</button>
+						</td>
+					</tr>
+					<tr id="row8" style="display: none;">
+						<td>
+							Tier 8 generator <span id="mult8">x1</span>
+						</td>
+						<td>
+							<div id="tier8Amount">0</div>
+						</td>
+						<td>
+							<button id="buy8" onclick="buyGen(8)" align="right" class="button">Cost: 1000</button>
+						</td>
+						<td align="right">
+							<button id="buy8Max" onclick="buyMaxGen(8)" align="right" class="button">Buy Max</button>
+						</td>
+					</tr>
+					<tr id="row9" style="display: none;">
+						<td>
+							Tier 9 generator <span id="mult9">x1</span>
+						</td>
+						<td>
+							<div id="tier9Amount">0</div>
+						</td>
+						<td>
+							<button id="buy9" onclick="buyGen(9)" align="right" class="button">Cost: 1000</button>
+						</td>
+						<td align="right">
+							<button id="buy9Max" onclick="buyMaxGen(9)" align="right" class="button">Buy Max</button>
+						</td>
+					</tr>
+					<tr id="row10" style="display: none;">
+						<td>
+							Tier 10 generator <span id="mult10">x1</span>
+						</td>
+						<td>
+							<div id="tier10Amount">0</div>
+						</td>
+						<td>
+							<button id="buy10" onclick="buyGen(10)" align="right" class="button">Cost: 1000</button>
+						</td>
+						<td align="right">
+							<button id="buy10Max" onclick="buyMaxGen(10)" align="right" class="button">Buy Max</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</body>
 </html>
