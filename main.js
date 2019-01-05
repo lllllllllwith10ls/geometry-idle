@@ -108,7 +108,7 @@ function showTiers() {
 	}
 }
 function update() {
-	
+	showTiers();
 	document.getElementById("points").innerHTML = Math.floor(player.points);
 	for (var i = 1; i <= 10; i++) {
 		var str = "tier" + i + "Amount";
