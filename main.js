@@ -100,7 +100,7 @@ function produce(fps) {
 
 function showTiers() {
 	for (var i = 2; i <= 10; i++) {
-		if (user["tier" + (i - 1)].amount > 0 && user["tier" + i].unlocked) {
+		if (player["tier" + (i - 1)].amount > 0 && player["tier" + i].unlocked) {
 			document.getElementById("row" + i).style.display = "";
 		} else {
 			document.getElementById("row" + i).style.display = "none";
