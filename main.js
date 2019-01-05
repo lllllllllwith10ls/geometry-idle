@@ -98,6 +98,15 @@ function produce(fps) {
 	update();
 }
 
+function showTiers() {
+	for (var i = 2; i <= 10; i++) {
+		if (user["tier" + (i - 1)].amount > 0 && user["tier" + i].unlocked) {
+			document.getElementById("row" + i).style.display = "";
+		} else {
+			document.getElementById("row" + i).style.display = "none";
+		}
+	}
+}
 function update() {
 	
 	document.getElementById("points").innerHTML = Math.floor(player.points);
