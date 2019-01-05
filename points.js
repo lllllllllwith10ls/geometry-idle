@@ -7,7 +7,7 @@ function getProductionAmount(tier) {
 	if(tier >= 10) {
 		return 0;
 	}
-	return getGenMult(tier)*player["tier"+(tier+1)].amount;
+	return getGenMult(tier)*player["tier"+tier].amount;
 }
 
 function canBuyGen(tier) {
