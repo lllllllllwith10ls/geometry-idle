@@ -174,12 +174,13 @@ function update() {
 	} else {
 		document.getElementById("lsButton").style.display = "none";
 	}
+	document.getElementById("lsButton").innerHTML = getLSAmount();
 	if(player.ls.prestiged > 0) {
 		document.getElementById("lineSegments").style.display = "";
 	} else {
 		document.getElementById("lineSegments").style.display = "none";
 	}
-	document.getElementById("lsAmount").innerHTML = player.ls.amount;
+	document.getElementById("LSOnPrestige").innerHTML = player.ls.amount;
 }
 function gameLoop() {
 	var newTime = new Date().getTime()
