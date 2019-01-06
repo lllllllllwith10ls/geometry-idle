@@ -25,11 +25,12 @@ function getDefaultSave() {
 			costMult: 1.21,
 			unlocked: true
 		},
-		lines: {
+		ls: {
 			amount: 0,
 			potentialUpgrades: ["MU","T4","T5","T6","T7","T8","T9","T10","DT1","DT2","DT3","DT4","DT5","DT6","DT7","DT8","DT9","DT10","DG"],
 			costs:             [1   ,60  ,70  ,80  ,90  ,100 ,110 ,120  ,2    ,4    ,6    ,15   ,20   ,25   ,30   ,35   ,40   ,45    ,200 ],
-			upgrades: []
+			upgrades: [],
+			prestiged: 0
 		},
 		tier4: {
 			cost: 100000,
@@ -100,7 +101,7 @@ function produce(fps) {
 	update();
 }
 
-function lineReset() {
+function pointReset() {
 	if(player.points > Math.pow(2,31)) {
 		let costs = [null,10,100,1000,1e5,1e8,1e12,1e20,1e30,1e43,1e60];
 		let costMults = [null,1.15,1.18,1.21,1.24,1.27,1.3,1.33,1.36,1.39,1.42];
@@ -111,22 +112,26 @@ function lineReset() {
 			player["tier"+i].multiplier = 1;
 			player["tier"+i].bought = 0;
 		}
-		player.lines.amount += Math.floor(Math.sqrt(player.points)/Math.pow(2,31));
+		player.ls.amount += getLSAmount();
 		player.points = 0;
+		player.ls.prestiged++;
 	}
+}
+function getLSAmount() {
+	return Math.floor(Math.sqrt(player.points)/Math.pow(2,31));
 }
 
 function buyUpgrade(upgrade) {
 	if(canBuyUpgrade(upgrade)) {
-		let index = player.lines.potentialUpgrade.indexOf(upgrade);
-		player.lines.amount -= player.lines.costs[index];
-		player.lines.upgrades.push(upgrade);
+		let index = player.ls.potentialUpgrade.indexOf(upgrade);
+		player.ls.amount -= player.ls.costs[index];
+		player.ls.upgrades.push(upgrade);
 	}
 }
 function canBuyUpgrade(upgrade) {
-	if(player.lines.potentialUpgrade.includes(upgrade)) {
-		let index = player.lines.potentialUpgrade.indexOf(upgrade);
-		if(player.lines.costs[index] <= player.lines.amount) {
+	if(player.ls.potentialUpgrade.includes(upgrade)) {
+		let index = player.ls.potentialUpgrade.indexOf(upgrade);
+		if(player.ls.costs[index] <= player.ls.amount) {
 			return true;
 		}
 		
@@ -142,7 +147,7 @@ function showTiers() {
 		}
 	}
 	for(let i = 4; i <= 10; i++) {
-		if(player.lines.potentialUpgrade.includes("T"+i)) {
+		if(player.ls.potentialUpgrade.includes("T"+i)) {
 			player["tier"+i].unlocked = true;
 		}
 	}
@@ -163,6 +168,17 @@ function update() {
 			document.getElementById("buy" + i + "Max").className = "buttonlocked";
 		}
 	}
+	if(getLSAmount()>0) {
+		document.getElementById("lsButton").style.display = "";
+	} else {
+		document.getElementById("lsButton").style.display = "none";
+	}
+	if(player.ls.prestiged > 0) {
+		document.getElementById("lineSegments").style.display = "";
+	} else {
+		document.getElementById("lineSegments").style.display = "none";
+	}
+	document.getElementById("lsAmount").innerHTML = player.ls.amount;
 }
 function gameLoop() {
 	produce(33);
