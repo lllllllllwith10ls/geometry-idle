@@ -1,5 +1,6 @@
 function getGenMult(tier) {
-	let multi = Math.pow(1.015,player["tier"+tier].bought);
+	let multi = player["tier"+tier].bought.pow(1.015);
+	player["tier"+tier].mult = multi;
 	return multi;
 }
 
@@ -7,11 +8,11 @@ function getProductionAmount(tier) {
 	if(tier >= 10) {
 		return 0;
 	}
-	return getGenMult(tier)*player["tier"+tier].amount;
+	return getGenMult(tier).times(player["tier"+tier].amount);
 }
 
 function canBuyGen(tier) {
-	if(player["tier"+tier].cost <= player.points && player["tier"+tier].unlocked) {
+	if(player["tier"+tier].cost.gte(player.points) && player["tier"+tier].unlocked) {
 		return true;
 	}
 	return false;
@@ -20,9 +21,9 @@ function canBuyGen(tier) {
 function buyGen(tier) {
 	if(canBuyGen(tier)) {
 		player["tier"+tier].bought++;
-		player["tier"+tier].amount++;
-		player.points -= player["tier"+tier].cost;
-		player["tier"+tier].cost *= player["tier"+tier].costMult;
+		player["tier"+tier].amount = player["tier"+tier].amount.plus(1);
+		player.points = player.points.minus(player["tier"+tier].cost);
+		player["tier"+tier].cost = player["tier"+tier].cost.times(player["tier"+tier].costMult);
 		
 	}
 }
