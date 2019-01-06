@@ -147,7 +147,7 @@ function showTiers() {
 		}
 	}
 	for(let i = 4; i <= 10; i++) {
-		if(player.ls.potentialUpgrades.includes("T"+i)) {
+		if(player.ls.upgrades.includes("T"+i)) {
 			player["tier"+i].unlocked = true;
 		}
 	}
