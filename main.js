@@ -184,7 +184,7 @@ function update() {
 function gameLoop() {
 	var newTime = new Date().getTime()
 	var diff = (newTime - player.lastTick) / 1000;
-	user.lastTick = newTime;
+	player.lastTick = newTime;
 	produce(33,diff);
 }
 function startInterval() {
