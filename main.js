@@ -119,7 +119,7 @@ function pointReset() {
 	}
 }
 function getLSAmount() {
-	return Math.floor(Math.sqrt(player.points)/Math.pow(2,23));
+	return Math.floor(Math.sqrt(player.points)/Math.pow(2,23/2));
 }
 
 function buyUpgrade(upgrade) {
