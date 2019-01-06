@@ -26,8 +26,10 @@ function getDefaultSave() {
 			unlocked: true
 		},
 		lines: {
-			upgrades: ["T4","T5","T6","T7","T8","T9","T10","DT1","DT2","DT3","DT4","DT5","DT6","DT7","DT8","DT9","DT10","DG"],
-			costs:    [60  ,70  ,80  ,90  ,100 ,110 ,120  ,10   ,10   ,10   ,15   ,20   ,25   ,30   ,35   ,40   ,45    ,200 ]
+			amount: 0,
+			potentialUpgrades: ["MU","T4","T5","T6","T7","T8","T9","T10","DT1","DT2","DT3","DT4","DT5","DT6","DT7","DT8","DT9","DT10","DG"],
+			costs:             [1   ,60  ,70  ,80  ,90  ,100 ,110 ,120  ,2    ,4    ,6    ,15   ,20   ,25   ,30   ,35   ,40   ,45    ,200 ],
+			upgrades: []
 		},
 		tier4: {
 			cost: 100000,
@@ -98,12 +100,50 @@ function produce(fps) {
 	update();
 }
 
+function lineReset() {
+	if(player.points > Math.pow(2,31)) {
+		let costs = [null,10,100,1000,1e5,1e8,1e12,1e20,1e30,1e43,1e60];
+		let costMults = [null,1.15,1.18,1.21,1.24,1.27,1.3,1.33,1.36,1.39,1.42];
+		for(let i = 0; i <= 10; i++) {
+			player["tier"+i].cost = costs[i];
+			player["tier"+i].costMult = costMults[i];
+			player["tier"+i].amount = 0;
+			player["tier"+i].multiplier = 1;
+			player["tier"+i].bought = 0;
+		}
+		player.lines.amount += Math.floor(Math.sqrt(player.points)/Math.pow(2,31));
+		player.points = 0;
+	}
+}
+
+function buyUpgrade(upgrade) {
+	if(canBuyUpgrade(upgrade)) {
+		let index = player.lines.potentialUpgrade.indexOf(upgrade);
+		player.lines.amount -= player.lines.costs[index];
+		player.lines.upgrades.push(upgrade);
+	}
+}
+function canBuyUpgrade(upgrade) {
+	if(player.lines.potentialUpgrade.includes(upgrade)) {
+		let index = player.lines.potentialUpgrade.indexOf(upgrade);
+		if(player.lines.costs[index] <= player.lines.amount) {
+			return true;
+		}
+		
+		return false;
+	}
+}
 function showTiers() {
 	for (var i = 2; i <= 10; i++) {
 		if (player["tier" + (i - 1)].amount > 0 && player["tier" + i].unlocked) {
 			document.getElementById("row" + i).style.display = "";
 		} else {
 			document.getElementById("row" + i).style.display = "none";
+		}
+	}
+	for(let i = 4; i <= 10; i++) {
+		if(player.lines.potentialUpgrade.includes("T"+i)) {
+			player["tier"+i].unlocked = true;
 		}
 	}
 }
