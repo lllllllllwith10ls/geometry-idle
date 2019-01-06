@@ -5,8 +5,8 @@ function getGenMult(tier) {
 }
 
 function getProductionAmount(tier) {
-	if(tier >= 10) {
-		return 0;
+	if(tier > 10) {
+		return new Decimal(0);
 	}
 	return getGenMult(tier).times(player["tier"+tier].amount);
 }
