@@ -103,7 +103,7 @@ function produce(offline) {
 }
 
 function pointReset() {
-	if(player.points > Math.pow(2,23)) {
+	if(player.points > Math.pow(2,23/2)) {
 		let costs = [null,10,100,1000,1e5,1e8,1e12,1e20,1e30,1e43,1e60];
 		let costMults = [null,1.15,1.18,1.21,1.24,1.27,1.3,1.33,1.36,1.39,1.42];
 		for(let i = 0; i <= 10; i++) {
