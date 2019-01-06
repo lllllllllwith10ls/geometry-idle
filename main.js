@@ -88,15 +88,16 @@ function getDefaultSave() {
 			costMult: 1.42,
 			unlocked: false
 		},
+		lastTick: new Date().getTime(),
 		version: 0
 	};
 }
 let player = getDefaultSave();
 
-function produce(fps) {
+function produce(fps, offline) {
 	player.points += getProductionAmount(1)/fps;
 	for(let i = 1; i < 10; i++) {
-		player["tier"+i].amount += getProductionAmount(i+1)/fps;
+		player["tier"+i].amount += getProductionAmount(i+1)/fps*offline;
 	}
 	update();
 }
@@ -181,7 +182,10 @@ function update() {
 	document.getElementById("lsAmount").innerHTML = player.ls.amount;
 }
 function gameLoop() {
-	produce(33);
+	var newTime = new Date().getTime()
+	var diff = (newTime - player.lastTick) / 1000;
+	user.lastTick = newTime;
+	produce(33,diff);
 }
 function startInterval() {
   setInterval(gameLoop, 33);
