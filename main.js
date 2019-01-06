@@ -94,10 +94,10 @@ function getDefaultSave() {
 }
 let player = getDefaultSave();
 
-function produce(fps, offline) {
-	player.points += getProductionAmount(1)/fps;
+function produce(offline) {
+	player.points += getProductionAmount(1)*offline;
 	for(let i = 1; i < 10; i++) {
-		player["tier"+i].amount += getProductionAmount(i+1)/fps*offline;
+		player["tier"+i].amount += getProductionAmount(i+1)*offline;
 	}
 	update();
 }
@@ -185,7 +185,7 @@ function gameLoop() {
 	var newTime = new Date().getTime()
 	var diff = (newTime - player.lastTick) / 1000;
 	player.lastTick = newTime;
-	produce(33,diff);
+	produce(diff);
 }
 function startInterval() {
   setInterval(gameLoop, 33);
