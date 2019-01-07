@@ -155,7 +155,7 @@ function showTiers() {
 }
 function update() {
 	showTiers();
-	document.getElementById("points").innerHTML = formatValue("Standard", player.points, 3, 2);
+	document.getElementById("points").innerHTML = formatValue("Standard", player.points, 3, 0);
 	for (let i = 1; i <= 10; i++) {
 		let str = "tier" + i + "Amount";
 		document.getElementById(str).innerHTML = formatValue("Standard", player["tier" + i].amount, 3, 2);
