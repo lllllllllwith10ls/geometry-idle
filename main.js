@@ -160,7 +160,7 @@ function update() {
 		let str = "tier" + i + "Amount";
 		document.getElementById(str).innerHTML = formatValue("Standard", player["tier" + i].amount, 3, 0);
 		document.getElementById("buy" + i).innerHTML = "Cost: " + formatValue("Standard", player["tier" + i].cost, 3, 0);
-		document.getElementById("mult" + i).innerHTML = "x" + formatValue("Standard", getGenMult(i), 3, 0);
+		document.getElementById("mult" + i).innerHTML = "x" + formatValue("Standard", getGenMult(i), 3, 3);
 		if(canBuyGen(i)) {
 			document.getElementById("buy" + i).className = "button";
 			document.getElementById("buy" + i + "Max").className = "button";
