@@ -9,7 +9,7 @@
 	</head>
 	<body onload="startInterval()">
 		<p>You have <span id="points">0</span> points</p>
-		<button onclick="player.points++" class="button">Get points</button>
+		<button onclick="player.points=player.points.plus(1)" class="button">Get points</button>
 		<div id='generators' class='tab' style='display:block'>
 			<table style="width:100%">
 				<tbody id="parent">
