@@ -191,3 +191,4 @@ function gameLoop() {
 function startInterval() {
   setInterval(gameLoop, 33);
 }
+
