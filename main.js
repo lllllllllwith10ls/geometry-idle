@@ -140,7 +140,7 @@ function canBuyUpgrade(upgrade) {
 	}
 }
 function showTiers() {
-	for (var i = 2; i <= 10; i++) {
+	for (let i = 2; i <= 10; i++) {
 		if (player["tier" + (i - 1)].amount.gte(0) && player["tier" + i].unlocked) {
 			document.getElementById("row" + i).style.display = "";
 		} else {
@@ -156,8 +156,8 @@ function showTiers() {
 function update() {
 	showTiers();
 	document.getElementById("points").innerHTML = Math.floor(player.points);
-	for (var i = 1; i <= 10; i++) {
-		var str = "tier" + i + "Amount";
+	for (let i = 1; i <= 10; i++) {
+		let str = "tier" + i + "Amount";
 		document.getElementById(str).innerHTML = formatValue("Standard", player["tier" + i].amount, 3, 2);
 		document.getElementById("buy" + i).innerHTML = "Cost: " + formatValue("Standard", player["tier" + i].cost, 3, 2);
 		document.getElementById("mult" + i).innerHTML = "x" + formatValue("Standard", getGenMult(i), 3, 2);
@@ -183,8 +183,8 @@ function update() {
 	document.getElementById("lsAmount").innerHTML = formatValue("Standard", player.ls.amount, 3, 2);
 }
 function gameLoop() {
-	var newTime = new Date().getTime()
-	var diff = (newTime - player.lastTick) / 1000;
+	let newTime = new Date().getTime()
+	let diff = (newTime - player.lastTick) / 1000;
 	player.lastTick = newTime;
 	produce(diff);
 }
