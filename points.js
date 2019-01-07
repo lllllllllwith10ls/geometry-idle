@@ -1,6 +1,6 @@
 function getGenMult(tier) {
 	let multi = new Decimal(1.015).pow(player["tier"+tier].bought);
-	player["tier"+tier].mult = multi;
+	player["tier"+tier].multiplier = multi;
 	return multi;
 }
 
