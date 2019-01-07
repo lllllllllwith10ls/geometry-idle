@@ -103,7 +103,7 @@ function produce(offline) {
 }
 
 function pointReset() {
-	if(player.points > Math.pow(2,23/2)) {
+	if(player.points.gte(Math.pow(2,23/2))) {
 		let costs = [null,10,100,1000,1e5,1e8,1e12,1e20,1e30,1e43,1e60];
 		let costMults = [null,1.15,1.18,1.21,1.24,1.27,1.3,1.33,1.36,1.39,1.42];
 		for(let i = 1; i <= 10; i++) {
@@ -141,7 +141,7 @@ function canBuyUpgrade(upgrade) {
 }
 function showTiers() {
 	for (var i = 2; i <= 10; i++) {
-		if (player["tier" + (i - 1)].amount > 0 && player["tier" + i].unlocked) {
+		if (player["tier" + (i - 1)].amount.gte(0) && player["tier" + i].unlocked) {
 			document.getElementById("row" + i).style.display = "";
 		} else {
 			document.getElementById("row" + i).style.display = "none";
@@ -169,7 +169,7 @@ function update() {
 			document.getElementById("buy" + i + "Max").className = "buttonlocked";
 		}
 	}
-	if(getLSAmount()>0) {
+	if(getLSAmount().gte(0)) {
 		document.getElementById("lsButton").style.display = "";
 	} else {
 		document.getElementById("lsButton").style.display = "none";
