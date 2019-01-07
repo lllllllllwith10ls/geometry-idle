@@ -158,9 +158,9 @@ function update() {
 	document.getElementById("points").innerHTML = formatValue("Standard", player.points, 3, 0);
 	for (let i = 1; i <= 10; i++) {
 		let str = "tier" + i + "Amount";
-		document.getElementById(str).innerHTML = formatValue("Standard", player["tier" + i].amount, 3, 2);
-		document.getElementById("buy" + i).innerHTML = "Cost: " + formatValue("Standard", player["tier" + i].cost, 3, 2);
-		document.getElementById("mult" + i).innerHTML = "x" + formatValue("Standard", getGenMult(i), 3, 2);
+		document.getElementById(str).innerHTML = formatValue("Standard", player["tier" + i].amount, 3, 0);
+		document.getElementById("buy" + i).innerHTML = "Cost: " + formatValue("Standard", player["tier" + i].cost, 3, 0);
+		document.getElementById("mult" + i).innerHTML = "x" + formatValue("Standard", getGenMult(i), 3, 0);
 		if(canBuyGen(i)) {
 			document.getElementById("buy" + i).className = "button";
 			document.getElementById("buy" + i + "Max").className = "button";
@@ -174,13 +174,13 @@ function update() {
 	} else {
 		document.getElementById("lsButton").style.display = "none";
 	}
-	document.getElementById("LSOnPrestige").innerHTML = formatValue("Standard", getLSAmount(), 3, 2);
+	document.getElementById("LSOnPrestige").innerHTML = formatValue("Standard", getLSAmount(), 3, 0);
 	if(player.ls.prestiged > 0) {
 		document.getElementById("lineSegments").style.display = "";
 	} else {
 		document.getElementById("lineSegments").style.display = "none";
 	}
-	document.getElementById("lsAmount").innerHTML = formatValue("Standard", player.ls.amount, 3, 2);
+	document.getElementById("lsAmount").innerHTML = formatValue("Standard", player.ls.amount, 3, 0);
 }
 function gameLoop() {
 	let newTime = new Date().getTime()
