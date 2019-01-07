@@ -169,7 +169,7 @@ function update() {
 			document.getElementById("buy" + i + "Max").className = "buttonlocked";
 		}
 	}
-	if(getLSAmount().gte(0)) {
+	if(getLSAmount().gte(1)) {
 		document.getElementById("lsButton").style.display = "";
 	} else {
 		document.getElementById("lsButton").style.display = "none";
