@@ -163,11 +163,12 @@ function update() {
 		}
 	}
 	for (let i = 1; i < player.ls.potentialUpgrades.length; i++) {
+		let name = player.ls.potentialUpgrades[i];
 		if (getLSAmount().gte(player.ls.costs[i])) {
-			document.getElementById(player.ls.potentialUpgrades[i]).className = "button";
+			document.getElementById(name).className = "button";
 		}
 		else {
-			document.getElementById(player.ls.potentialUpgrades[i]).className = "buttonlocked";
+			document.getElementById(name).className = "buttonlocked";
 		}
 	}
 	if(getLSAmount().gte(1)) {
