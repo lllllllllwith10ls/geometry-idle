@@ -162,7 +162,7 @@ function update() {
 			document.getElementById("buy" + i + "Max").className = "buttonlocked";
 		}
 	}
-	for (let i = 1; i < player.ls.potentialUpgrades.length; i++) {
+	for (let i = 1; i < player.ls.potentialUpgrades.length-1; i++) {
 		let name = player.ls.potentialUpgrades[i];
 		if (getLSAmount().gte(player.ls.costs[i])) {
 			document.getElementById(name).className = "button";
