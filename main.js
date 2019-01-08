@@ -187,8 +187,10 @@ function update() {
 	document.getElementById("LSOnPrestige").innerHTML = formatValue("Standard", getLSAmount(), 3, 0);
 	if(player.ls.prestiged > 0) {
 		document.getElementById("lineSegments").style.display = "";
+		document.getElementById("lineTab").style.display="";
 	} else {
 		document.getElementById("lineSegments").style.display = "none";
+		document.getElementById("lineTab").style.display="none";
 	}
 	document.getElementById("lsAmount").innerHTML = formatValue("Standard", player.ls.amount, 3, 0);
 }
