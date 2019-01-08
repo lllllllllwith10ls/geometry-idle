@@ -1,7 +1,13 @@
 function getGenMult(tier) {
 	let multi = new Decimal(1.015).pow(player["tier"+tier].bought);
 	player["tier"+tier].multiplier = multi;
-	return multi;
+	let upgrade = player.ls.upgrades[8+tier];
+	if (upgrade>0) {
+		return multi.times(player.ls.upgrades[8+tier].times(2));
+	}
+	else {
+		return multi;
+	}
 }
 
 function getProductionAmount(tier) {
