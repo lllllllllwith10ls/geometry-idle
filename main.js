@@ -153,6 +153,16 @@ function showTiers() {
 		}
 	}
 }
+function showTab(tabName) {
+	var tabs = document.getElementsByClassName('tab');
+	var tab;
+	for (var i = 0; i < tabs.length; i++) {
+		tab = tabs.item(i);
+		if (tab.id === tabName) tab.style.display = 'block';
+		else tab.style.display = 'none';
+	}
+	resizeCanvas();
+}
 function update() {
 	showTiers();
 	document.getElementById("points").innerHTML = formatValue("Standard", player.points, 3, 0);
