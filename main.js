@@ -123,22 +123,6 @@ function getLSAmount() {
 	return player.points.root(11.5).divide(4);
 }
 
-function buyUpgrade(upgrade) {
-	if(canBuyUpgrade(upgrade)) {
-		let index = player.ls.potentialUpgrades.indexOf(upgrade);
-		player.ls.amount = player.ls.amount.minus(player.ls.costs[index]);
-		player.ls.upgrades.push(upgrade);
-	}
-}
-function canBuyUpgrade(upgrade) {
-	if(player.ls.potentialUpgrades.includes(upgrade)) {
-		let index = player.ls.potentialUpgrades.indexOf(upgrade);
-		if(new Decimal(player.ls.costs[index]).lte(player.ls.amount)) {
-			return true;
-		}		
-		return false;
-	}
-}
 function showTiers() {
 	for (let i = 2; i <= 10; i++) {
 		if (player["tier" + (i - 1)].amount.gte(0) && player["tier" + i].unlocked) {
