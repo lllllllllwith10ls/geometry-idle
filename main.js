@@ -135,8 +135,7 @@ function canBuyUpgrade(upgrade) {
 		let index = player.ls.potentialUpgrades.indexOf(upgrade);
 		if(new Decimal(player.ls.costs[index]).lte(player.ls.amount)) {
 			return true;
-		}
-		
+		}		
 		return false;
 	}
 }
@@ -177,6 +176,14 @@ function update() {
 		} else {
 			document.getElementById("buy" + i).className = "buttonlocked";
 			document.getElementById("buy" + i + "Max").className = "buttonlocked";
+		}
+	}
+	for (let i = 1; i < player.ls.potentialUpgrades.length+1; i++) {
+		if (getLSAmount().gte(player.ls.costs[i])) {
+			document.getElementById(player.ls.potentialUpgrades[i]).className = "button";
+		}
+		else {
+			document.getElementById(player.ls.potentialUpgrades[i]).className = "buttonlocked";
 		}
 	}
 	if(getLSAmount().gte(1)) {
