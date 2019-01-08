@@ -8,8 +8,8 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body onload="startInterval()">
-		<button onclick="showTab('generators')" class="button">Point Generators</button>
-		<button onclick="showTab('lines')" class="button" style="display:none">Line Upgrades</button>
+		<button id="genTab" onclick="showTab('generators')" class="button">Point Generators</button>
+		<button id="lineTab" onclick="showTab('lines')" class="button" style="display:none">Line Upgrades</button>
 		<p>You have <span id="points">0</span> points</p>
 		<button onclick="player.points=player.points.plus(1)" class="button">Get points</button>
 		<div id='generators' class='tab' style='display:block'>
