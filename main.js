@@ -197,7 +197,6 @@ function load() {
   	var save = JSON.parse(localStorage.getItem("geometryIdleSave"));
   	if (localStorage.getItem("geometryIdleSave") !== null) {
     		player = convertSave(save, getDefaultSave());
-    		updateSave()
   	}
   	return player;
 }
@@ -207,10 +206,10 @@ function convertSave(obj, obj2) {
     		for (var i in obj) {
       			obj2[i] = convertSave(obj[i], obj2[i]);
     		}
-    		return obj2;
+    		return Decimal.valueOf(obj2);
   	} 
 	else {
-    		return obj;
+    		return Decimal.valueOf(obj);
  	}
 }
 function gameLoop() {
