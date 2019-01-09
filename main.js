@@ -164,7 +164,7 @@ function update() {
 	}
 	for (let i = 1; i < player.ls.potentialUpgrades.length-1; i++) {
 		let name = player.ls.potentialUpgrades[i];
-		if (getLSAmount().gte(player.ls.costs[i])) {
+		if (player.ls.amount.gte(player.ls.costs[i])) {
 			document.getElementById(name).className = "button";
 		}
 		else {
