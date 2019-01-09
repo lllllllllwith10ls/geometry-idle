@@ -186,6 +186,17 @@ function update() {
 	}
 	document.getElementById("lsAmount").innerHTML = formatValue("Standard", player.ls.amount, 3, 0);
 }
+function save(){
+  localStorage.setItem("save",JSON.stringify(player));
+	//Right here is just some code that allows a popup message when the game saves.
+  	//document.getElementById("savedInfo").style.display="inline";
+  	//function foo() {document.getElementById("savedInfo").style.display="none"}
+  	//setTimeout(foo, 2000);
+}
+function load(){
+  	if(localStorage.getItem("save") !== null) player = JSON.parse(localStorage.getItem("save"));
+  	return player;
+}
 function gameLoop() {
 	let newTime = new Date().getTime()
 	let diff = (newTime - player.lastTick) / 1000;
@@ -193,6 +204,8 @@ function gameLoop() {
 	produce(diff);
 }
 function startInterval() {
-  setInterval(gameLoop, 33);
+	load();
+  	setInterval(gameLoop, 33);
+	setInterval(save, 6000);
 }
 
