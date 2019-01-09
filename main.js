@@ -195,9 +195,10 @@ function save(){
 }
 function load() {
   	var save = JSON.parse(localStorage.getItem("geometryIdleSave"));
-  	if (localStorage.getItem("geometryIdleSave") !== null) {
-    		player = convertSave(save, getDefaultSave());
-  	}
+  	//if (localStorage.getItem("geometryIdleSave") !== null) {
+    	//	player = convertSave(save, getDefaultSave());
+  	//}
+	player = save;
   	return player;
 }
 
