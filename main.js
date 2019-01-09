@@ -132,7 +132,7 @@ function showTiers() {
 		}
 	}
 	for(let i = 4; i <= 10; i++) {
-		if(player.ls.upgrades.includes("T"+i)) {
+		if(player.ls.upgrades[i-3] == 1) {
 			player["tier"+i].unlocked = true;
 		}
 	}
