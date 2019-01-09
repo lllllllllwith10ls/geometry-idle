@@ -20,6 +20,7 @@ function buyUpgrade(upgrade) {
 				player.ls.upgrades[index] = 1;
 				let num = index + 3;
 				document.getElementById("T"+num).innerHTML = "Tier "+num+" generator<br/>unlocked!";
+				document.getElementById("DT"+num).style.display = "block";
 			}
 		}
 	}
