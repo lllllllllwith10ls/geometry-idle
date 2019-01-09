@@ -2,7 +2,8 @@ function buyUpgrade(upgrade) {
 	if(canBuyUpgrade(upgrade)) {
 		let index = player.ls.potentialUpgrades.indexOf(upgrade);
 		let upg = index-7;
-		player.ls.amount = player.ls.amount.minus(player.ls.costs[index]);
+		let weirdFix = Decimal.fromValue(player.ls.amount);
+		player.ls.amount = weirdFix.minus(player.ls.costs[index]);
 		player.ls.upgrades[index]++;
     		if(upgrade.substring(2)>3) {
       			player.ls.costs[index]*=10;
