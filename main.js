@@ -195,6 +195,7 @@ function save(){
 }
 function load(){
   	if(localStorage.getItem("geometryIdleSave") !== null) player = JSON.parse(localStorage.getItem("geometryIdleSave"));
+	player.points = new Decimal(player.points);
   	return player;
 }
 function gameLoop() {
