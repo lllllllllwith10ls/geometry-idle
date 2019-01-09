@@ -193,10 +193,25 @@ function save(){
   	//function foo() {document.getElementById("savedInfo").style.display="none"}
   	//setTimeout(foo, 2000);
 }
-function load(){
-  	if(localStorage.getItem("geometryIdleSave") !== null) player = JSON.parse(localStorage.getItem("geometryIdleSave"));
-	player.points = new Decimal(player.points);
+function load() {
+  	var save = JSON.parse(localStorage.getItem("geometryIdleSave"));
+  	if (localStorage.getItem("geometryIdleSave") !== null) {
+    		player = convertSave(save, getDefaultSave());
+    		updateSave()
+  	}
   	return player;
+}
+
+function convertSave(obj, obj2) {
+  	if (typeof obj === "object" && obj !== null && typeof obj2 === "object" && obj2 !== null) {
+    		for (var i in obj) {
+      			obj2[i] = convertSave(obj[i], obj2[i]);
+    		}
+    		return obj2;
+  	} 
+	else {
+    		return obj;
+ 	}
 }
 function gameLoop() {
 	let newTime = new Date().getTime()
