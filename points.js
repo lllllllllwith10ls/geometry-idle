@@ -5,6 +5,7 @@ function getGenMult(tier) {
 		multi = multi.times(upgrade*2);
 	}
 	player["tier"+tier].multiplier = multi;
+	return multi;
 }
 
 function getProductionAmount(tier) {
