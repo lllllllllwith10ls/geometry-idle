@@ -209,7 +209,7 @@ function convertSave(obj, obj2) {
     		return obj2;
   	} 
 	else {
-    		return Decimal.valueOf(obj);
+    		obj;
  	}
 }
 function gameLoop() {
