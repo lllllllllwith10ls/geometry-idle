@@ -11,7 +11,7 @@ function buyUpgrade(upgrade) {
     		else {
      	 		player.ls.costs[index]*=5;
     		}
-		document.getElementById("T"+upg+"DoubleCount").innerHTML += 2;
+		document.getElementById("T"+upg+"DoubleCount").innerHTML *= 2;
 	}
 }
 function canBuyUpgrade(upgrade) {
