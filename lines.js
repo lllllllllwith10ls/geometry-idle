@@ -1,11 +1,10 @@
 function buyUpgrade(upgrade) {
 	if(canBuyUpgrade(upgrade)) {
 		let index = player.ls.potentialUpgrades.indexOf(upgrade);
-		player.ls.amount = weirdFix.minus(player.ls.costs[index]);
+		player.ls.amount = player.ls.amount.minus(player.ls.costs[index]);
 		if (index > 7) {
 			player.ls.upgrades[index]++;
 			let upg = index-7;
-			let weirdFix = Decimal.fromValue(player.ls.amount);
     			if(upgrade.substring(2)>3) {
       				player.ls.costs[index] *= 10;
 				document.getElementById("T"+upg+"DoubleCost").innerHTML *= 10;
