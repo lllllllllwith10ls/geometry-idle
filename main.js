@@ -187,14 +187,14 @@ function update() {
 	document.getElementById("lsAmount").innerHTML = formatValue("Standard", player.ls.amount, 3, 0);
 }
 function save(){
-  localStorage.setItem("save",JSON.stringify(player));
+  localStorage.setItem("geometryIdleSave",JSON.stringify(player));
 	//Right here is just some code that allows a popup message when the game saves.
   	//document.getElementById("savedInfo").style.display="inline";
   	//function foo() {document.getElementById("savedInfo").style.display="none"}
   	//setTimeout(foo, 2000);
 }
 function load(){
-  	if(localStorage.getItem("save") !== null) player = JSON.parse(localStorage.getItem("save"));
+  	if(localStorage.getItem("geometryIdleSave") !== null) player = JSON.parse(localStorage.getItem("geometryIdleSave"));
   	return player;
 }
 function gameLoop() {
