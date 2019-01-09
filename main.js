@@ -206,7 +206,7 @@ function convertSave(obj, obj2) {
     		for (var i in obj) {
       			obj2[i] = convertSave(obj[i], obj2[i]);
     		}
-    		return Decimal.valueOf(obj2);
+    		return obj2;
   	} 
 	else {
     		return Decimal.valueOf(obj);
