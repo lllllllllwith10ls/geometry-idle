@@ -196,9 +196,9 @@ function save(){
 function load() {
   	var save = JSON.parse(localStorage.getItem("geometryIdleSave"));
   	if (localStorage.getItem("geometryIdleSave") !== null) {
-    		player = convertSave(save, getDefaultSave());
+    		player = getDefaultSave();
   	}
-	player = save;
+	else player = save;
   	return player;
 }
 
@@ -220,8 +220,8 @@ function gameLoop() {
 	produce(diff);
 }
 function startInterval() {
-	load();
+	//load();
   	setInterval(gameLoop, 33);
-	setInterval(save, 6000);
+	//setInterval(save, 6000);
 }
 
