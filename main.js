@@ -194,11 +194,11 @@ function save(){
   	//setTimeout(foo, 2000);
 }
 function load() {
-  	var save = JSON.parse(localStorage.getItem("geometryIdleSave"));
   	if (localStorage.getItem("geometryIdleSave") !== null) {
-    		player = getDefaultSave();
+  		var save = JSON.parse(localStorage.getItem("geometryIdleSave"));
+    		player = save;
   	}
-	else player = save;
+	else player = getDefaultSave();
   	return player;
 }
 
@@ -220,7 +220,7 @@ function gameLoop() {
 	produce(diff);
 }
 function startInterval() {
-	//load();
+	load();
   	setInterval(gameLoop, 33);
 	//setInterval(save, 6000);
 }
