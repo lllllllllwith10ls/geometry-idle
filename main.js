@@ -233,7 +233,7 @@ function load() {
   	}
 	else {	
   		var save = JSON.parse(localStorage.getItem("geometryIdleSave"));
-    		player = stringToSave(save,getDefaultSave());
+    		player = stringToSave(save, getDefaultSave());
 	}
   	return player;
 }
@@ -242,12 +242,11 @@ function stringToSave(string, baseSave) {
 	var base = clone(baseSave);
 	var keySet = Object.keys(string);
 	for (var i = 0; i < keySet.length; i++){
-		if(newSave[keySet[i]] == undefined) console.log(newSave[keySet[i]]);
-		if(Object.keys(newSave[keySet[i]]).length > 1) {
-			newSave[keySet[i]] = stringToSave(newSave[keySet[i]], base[i]);
-		}
-		else if(base[i] instanceof Decimal) {
+		if(base[i] instanceof Decimal) {
 			newSave[keySet[i]] = Decimal.fromString(string[keySet[i]]);
+		}
+		else if(Object.keys(newSave[keySet[i]]).length > 1) {
+			newSave[keySet[i]] = stringToSave(newSave[keySet[i]], base[i]);
 		}
 	}
 	return newSave;
