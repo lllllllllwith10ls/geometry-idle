@@ -233,7 +233,7 @@ function load() {
   	return player;
 }
 function saveToString(save) {
-	let stringSave;
+	let stringSave = clone(save);
 	let keySet = Object.keys(save);
 	for (var i = 0; i < keySet.length; i++){
 		if(Object.keys(save[keySet[i]]).length > 1) {
