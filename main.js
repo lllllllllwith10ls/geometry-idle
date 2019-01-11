@@ -204,11 +204,6 @@ function clone(obj) {
 	        }
 	        return copy;
 	}
-	// Convert Decimal to String
-	if (obj instanceof Decimal) {
-		copy = Decimal.toString(obj);
-		return copy;
-	}
 	// Handle Object
 	if (obj instanceof Object) {
 		copy = {};
@@ -220,8 +215,7 @@ function clone(obj) {
     throw new Error("Unable to copy obj! Its type isn't supported.");
 }
 function save(){
-	var copy = clone(player);
-  	localStorage.setItem("geometryIdleSave",JSON.stringify(copy));
+  	localStorage.setItem("geometryIdleSave",JSON.stringify(saveToString(player)));
 	//Right here is just some code that allows a popup message when the game saves.
   	//document.getElementById("savedInfo").style.display="inline";
   	//function foo() {document.getElementById("savedInfo").style.display="none"}
@@ -237,9 +231,22 @@ function load() {
 	}
   	return player;
 }
+function saveToString(save) {
+	var copy = clone(save);
+	var keySet = Object.keys(save);
+	for (var i = 0; i < keySet.length; i++){
+		if(save[keySet[i]] instanceof Decimal) {
+			copy[keySet[i]] = Decimal.toString(save[keySet[i]]);
+		}
+		else if(Object.keys(copy[i]]).length > 1) {
+			copy[keySet[i]] = saveToString(copy[keySet[i]]);
+		}
+	}
+	return copy;
+}
 function stringToSave(string, base) {
 	var newSave = clone(string);
-	var keySet = Object.keys(string);
+	var keySet = Object.keys(base);
 	for (var i = 0; i < keySet.length; i++){
 		if(base[keySet[i]] instanceof Decimal) {
 			newSave[keySet[i]] = Decimal.fromString(string[keySet[i]]);
