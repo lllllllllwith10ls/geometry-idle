@@ -187,7 +187,8 @@ function update() {
 	document.getElementById("lsAmount").innerHTML = formatValue("Standard", player.ls.amount, 3, 0);
 }
 function save(){
-  	localStorage.setItem("geometryIdleSave",JSON.stringify(saveToString(player)));
+	let tempPlayer = player;
+  	localStorage.setItem("geometryIdleSave",JSON.stringify(saveToString(tempPlayer)));
 	//Right here is just some code that allows a popup message when the game saves.
   	//document.getElementById("savedInfo").style.display="inline";
   	//function foo() {document.getElementById("savedInfo").style.display="none"}
