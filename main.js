@@ -238,7 +238,7 @@ function saveToString(save) {
 		if(save[keySet[i]] instanceof Decimal) {
 			copy[keySet[i]] = Decimal.toString(save[keySet[i]]);
 		}
-		else if(Object.keys(copy[i]]).length > 1) {
+		else if(Object.keys(copy[keySet[i]]).length > 1) {
 			copy[keySet[i]] = saveToString(copy[keySet[i]]);
 		}
 	}
