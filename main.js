@@ -187,7 +187,7 @@ function update() {
 	document.getElementById("lsAmount").innerHTML = formatValue("Standard", player.ls.amount, 3, 0);
 }
 function save(){
-  localStorage.setItem("geometryIdleSave",JSON.stringify(player));
+  	localStorage.setItem("geometryIdleSave",JSON.stringify(saveToString(player)));
 	//Right here is just some code that allows a popup message when the game saves.
   	//document.getElementById("savedInfo").style.display="inline";
   	//function foo() {document.getElementById("savedInfo").style.display="none"}
@@ -196,22 +196,36 @@ function save(){
 function load() {
   	if (localStorage.getItem("geometryIdleSave") !== null) {
   		var save = JSON.parse(localStorage.getItem("geometryIdleSave"));
-    		player = save;
+    		player = stringToSave(save,getDefaultSave());
   	}
 	else player = getDefaultSave();
   	return player;
 }
-
-function convertSave(obj, obj2) {
-  	if (typeof obj === "object" && obj !== null && typeof obj2 === "object" && obj2 !== null) {
-    		for (var i in obj) {
-      			obj2[i] = convertSave(obj[i], obj2[i]);
-    		}
-    		return obj2;
-  	} 
-	else {
-    		obj;
- 	}
+function saveToString(save) {
+	let stringSave = save;
+	let keys = Object.keys(save);
+	for (let i = 0; i < keys.length; i++){
+		if(Object.keys(save[keys[i]]).length > 1) {
+			return saveToString(save[keys[i]]);
+		}
+		else if(save[keys[i]] instanceof Decimal) {
+			stringSave[keys[i]] = Decimal.toString(save[keys[i]]);
+		}
+	}
+	return stringSave;
+}
+function stringToSave(string, baseSave) {
+	let newSave = string;
+	let keys = Object.keys(string);
+	for (let i = 0; i < keys.length; i++){
+		if(Object.keys(save[keys[i]]).length > 1) {
+			return stringToSave(save[keys[i]],  baseSave[i]);
+		}
+		else if(baseSave[i] instanceof Decimal) {
+			newSave[keys[i]] = Decimal.fromString(string[keys[i]]);
+		}
+	}
+	return newSave;
 }
 function gameLoop() {
 	let newTime = new Date().getTime()
@@ -222,6 +236,6 @@ function gameLoop() {
 function startInterval() {
 	load();
   	setInterval(gameLoop, 33);
-	//setInterval(save, 6000);
+	setInterval(save, 6000);
 }
 
