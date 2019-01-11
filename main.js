@@ -237,9 +237,8 @@ function load() {
 	}
   	return player;
 }
-function stringToSave(string, baseSave) {
+function stringToSave(string, base) {
 	var newSave = clone(string);
-	var base = clone(baseSave);
 	var keySet = Object.keys(string);
 	for (var i = 0; i < keySet.length; i++){
 		if(base[keySet[i]] instanceof Decimal) {
