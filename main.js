@@ -242,8 +242,8 @@ function stringToSave(string, baseSave) {
 	var keySet = Object.keys(string);
 	for (var i = 0; i < keySet.length; i++){
 		if(newSave[keySet[i]] == undefined) console.log(newSave[keySet[i]]);
-		if(Object.keys(save[keySet[i]]).length > 1) {
-			newSave[keySet[i]] = stringToSave(save[keySet[i]],  baseSave[i]);
+		if(Object.keys(newSave[keySet[i]]).length > 1) {
+			newSave[keySet[i]] = stringToSave(newSave[keySet[i]],  baseSave[i]);
 		}
 		else if(baseSave[i] instanceof Decimal) {
 			newSave[keySet[i]] = Decimal.fromString(string[keySet[i]]);
