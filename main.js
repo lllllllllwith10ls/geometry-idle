@@ -215,10 +215,7 @@ function clone(obj) {
     throw new Error("Unable to copy obj! Its type isn't supported.");
 }
 function save(){
-	var copy = {};
-        for (var attr in player) {
-            if (player.hasOwnProperty(attr)) copy[attr] = clone(player[attr]);
-        }
+	var copy = clone(player);
   	localStorage.setItem("geometryIdleSave",JSON.stringify(saveToString(copy)));
 	//Right here is just some code that allows a popup message when the game saves.
   	//document.getElementById("savedInfo").style.display="inline";
