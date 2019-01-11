@@ -193,6 +193,7 @@ function save(){
   	//document.getElementById("savedInfo").style.display="inline";
   	//function foo() {document.getElementById("savedInfo").style.display="none"}
   	//setTimeout(foo, 2000);
+	player = tempPlayer;
 }
 function load() {
   	if (localStorage.getItem("geometryIdleSave") == null) {
