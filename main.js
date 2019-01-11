@@ -194,11 +194,13 @@ function save(){
   	//setTimeout(foo, 2000);
 }
 function load() {
-  	if (localStorage.getItem("geometryIdleSave") !== null) {
+  	if (localStorage.getItem("geometryIdleSave") == null) {
+		player = getDefaultSave();
+  	}
+	else {	
   		var save = JSON.parse(localStorage.getItem("geometryIdleSave"));
     		player = stringToSave(save,getDefaultSave());
-  	}
-	else player = getDefaultSave();
+	}
   	return player;
 }
 function saveToString(save) {
