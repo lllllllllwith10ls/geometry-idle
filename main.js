@@ -244,8 +244,7 @@ function saveToString(save) {
 	}
 	return copy;
 }
-function stringToSave(string, base) {
-	var newSave = clone(string);
+function stringToSave(newSave, base) {
 	var keySet = Object.keys(base);
 	for (var i = 0; i < keySet.length; i++){
 		if(base[keySet[i]] instanceof Decimal) {
