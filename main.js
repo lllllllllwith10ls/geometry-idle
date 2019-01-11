@@ -208,7 +208,7 @@ function saveToString(save) {
 	let keys = Object.keys(save);
 	for (let i = 0; i < keys.length; i++){
 		if(Object.keys(save[keys[i]]).length > 1) {
-			return saveToString(save[keys[i]]);
+			stringSave[keys[i]] = saveToString(save[keys[i]]);
 		}
 		else if(save[keys[i]] instanceof Decimal) {
 			stringSave[keys[i]] = Decimal.toString(save[keys[i]]);
@@ -221,7 +221,7 @@ function stringToSave(string, baseSave) {
 	let keys = Object.keys(string);
 	for (let i = 0; i < keys.length; i++){
 		if(Object.keys(save[keys[i]]).length > 1) {
-			return stringToSave(save[keys[i]],  baseSave[i]);
+			newSave[keys[i]] = stringToSave(save[keys[i]],  baseSave[i]);
 		}
 		else if(baseSave[i] instanceof Decimal) {
 			newSave[keys[i]] = Decimal.fromString(string[keys[i]]);
