@@ -220,6 +220,7 @@ function stringToSave(string, baseSave) {
 	let newSave = string;
 	let keys = Object.keys(string);
 	for (let i = 0; i < keys.length; i++){
+		if(newSave[keys[i]] == undefined) console.log(newSave[keys[i]]);
 		if(Object.keys(save[keys[i]]).length > 1) {
 			newSave[keys[i]] = stringToSave(save[keys[i]],  baseSave[i]);
 		}
