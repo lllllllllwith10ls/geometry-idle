@@ -246,7 +246,7 @@ function saveToString(save) {
 	return stringSave;
 }
 function stringToSave(string, baseSave) {
-	var newSave = string;
+	var newSave = clone(string);
 	var keySet = Object.keys(string);
 	for (var i = 0; i < keySet.length; i++){
 		if(newSave[keySet[i]] == undefined) console.log(newSave[keySet[i]]);
