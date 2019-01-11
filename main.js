@@ -187,36 +187,41 @@ function update() {
 	document.getElementById("lsAmount").innerHTML = formatValue("Standard", player.ls.amount, 3, 0);
 }
 function clone(obj) {
-    var copy;
-    // Handle the 3 simple types, and null or undefined
-    if (null == obj || "object" != typeof obj) return obj;
-    // Handle Date
-    if (obj instanceof Date) {
-        copy = new Date();
-        copy.setTime(obj.getTime());
-        return copy;
-    }
-    // Handle Array
-    if (obj instanceof Array) {
-        copy = [];
-        for (var i = 0, len = obj.length; i < len; i++) {
-            copy[i] = clone(obj[i]);
-        }
-        return copy;
-    }
-    // Handle Object
-    if (obj instanceof Object) {
-        copy = {};
-        for (var attr in obj) {
-            if (obj.hasOwnProperty(attr)) copy[attr] = clone(obj[attr]);
-        }
-        return copy;
-    }
+	    var copy;
+    	// Handle the 3 simple types, and null or undefined
+    	if (null == obj || "object" != typeof obj) return obj;
+    	// Handle Date
+	if (obj instanceof Date) {
+		copy = new Date();
+	        copy.setTime(obj.getTime());
+	        return copy;
+	}
+	// Handle Array
+	if (obj instanceof Array) {
+	        copy = [];
+	        for (var i = 0, len = obj.length; i < len; i++) {
+	            copy[i] = clone(obj[i]);
+	        }
+	        return copy;
+	}
+	// Handle Object
+	if (obj instanceof Object) {
+		copy = {};
+	        for (var attr in obj) {
+	            if (obj.hasOwnProperty(attr)) copy[attr] = clone(obj[attr]);
+	        }
+	        return copy;
+	}
+	// Convert Decimal to String
+	if (obj instanceof Decimal) {
+		copy = Decimal.toString(obj);
+		return copy;
+	}
     throw new Error("Unable to copy obj! Its type isn't supported.");
 }
 function save(){
 	var copy = clone(player);
-  	localStorage.setItem("geometryIdleSave",JSON.stringify(saveToString(copy)));
+  	localStorage.setItem("geometryIdleSave",JSON.stringify(copy));
 	//Right here is just some code that allows a popup message when the game saves.
   	//document.getElementById("savedInfo").style.display="inline";
   	//function foo() {document.getElementById("savedInfo").style.display="none"}
@@ -231,19 +236,6 @@ function load() {
     		player = stringToSave(save,getDefaultSave());
 	}
   	return player;
-}
-function saveToString(save) {
-	let stringSave = clone(save);
-	let keySet = Object.keys(save);
-	for (var i = 0; i < keySet.length; i++){
-		if(Object.keys(save[keySet[i]]).length > 1) {
-			stringSave[keySet[i]] = saveToString(save[keySet[i]]);
-		}
-		else if(save[keySet[i]] instanceof Decimal) {
-			stringSave[keySet[i]] = Decimal.toString(save[keySet[i]]);
-		}
-	}
-	return stringSave;
 }
 function stringToSave(string, baseSave) {
 	var newSave = clone(string);
