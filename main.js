@@ -263,8 +263,8 @@ function gameLoop() {
 	produce(diff);
 }
 function startInterval() {
-	//load();
+	load();
   	setInterval(gameLoop, 33);
-	//setInterval(save, 6000);
+	setInterval(save, 6000);
 }
 
