@@ -204,6 +204,11 @@ function clone(obj) {
 	        }
 	        return copy;
 	}
+	// Convert Decimal to String
+	if (obj instanceof Decimal) {
+		copy = Decimal.toString(obj);
+		return copy;
+	}
 	// Handle Object
 	if (obj instanceof Object) {
 		copy = {};
@@ -211,11 +216,6 @@ function clone(obj) {
 	            if (obj.hasOwnProperty(attr)) copy[attr] = clone(obj[attr]);
 	        }
 	        return copy;
-	}
-	// Convert Decimal to String
-	if (obj instanceof Decimal) {
-		copy = Decimal.toString(obj);
-		return copy;
 	}
     throw new Error("Unable to copy obj! Its type isn't supported.");
 }
