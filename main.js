@@ -187,13 +187,15 @@ function update() {
 	document.getElementById("lsAmount").innerHTML = formatValue("Standard", player.ls.amount, 3, 0);
 }
 function save(){
-	let tempPlayer = player;
-  	localStorage.setItem("geometryIdleSave",JSON.stringify(saveToString(tempPlayer)));
+	var copy = {};
+        for (var attr in player) {
+            if (player.hasOwnProperty(attr)) copy[attr] = clone(player[attr]);
+        }
+  	localStorage.setItem("geometryIdleSave",JSON.stringify(saveToString(copy)));
 	//Right here is just some code that allows a popup message when the game saves.
   	//document.getElementById("savedInfo").style.display="inline";
   	//function foo() {document.getElementById("savedInfo").style.display="none"}
   	//setTimeout(foo, 2000);
-	player = tempPlayer;
 }
 function load() {
   	if (localStorage.getItem("geometryIdleSave") == null) {
@@ -206,7 +208,7 @@ function load() {
   	return player;
 }
 function saveToString(save) {
-	let stringSave = save;
+	let stringSave;
 	let keySet = Object.keys(save);
 	for (var i = 0; i < keySet.length; i++){
 		if(Object.keys(save[keySet[i]]).length > 1) {
