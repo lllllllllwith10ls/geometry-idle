@@ -373,7 +373,7 @@ function stringToSave(newSave, base) {
 	}
 	return newSave;
 }
-function clear() {
+function clearSave() {
 	if (confirm("This is not reversible. Delete your save file?")) {
 		player = getDefaultSave();
 		update();
