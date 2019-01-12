@@ -169,7 +169,7 @@ function getDefaultSave() {
 			costMult: 1.30,
 			unlocked: false
 		},
-		currentTab: "generators";
+		currentTab: "generators",
 		lastTick: new Date().getTime(),
 		version: 0
 	};
