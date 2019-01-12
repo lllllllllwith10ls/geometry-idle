@@ -262,6 +262,10 @@ function update() {
 		}
 	}
 	for (let i = 1; i < player.ls.potentialUpgrades.length; i++) {
+		if (i < 8) {			
+			document.getElementById("T"+upg+"DoubleCost").innerHTML = player.ls.costs[index];
+			document.getElementById("T"+upg+"DoubleCount").innerHTML = player.ls.upgrades[index]*2;
+		}
 		let name = player.ls.potentialUpgrades[i];
 		if (player.ls.amount.gte(player.ls.costs[i])) {
 			document.getElementById(name).className = "button";
