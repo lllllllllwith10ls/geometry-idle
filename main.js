@@ -88,6 +88,86 @@ function getDefaultSave() {
 			costMult: 1.42,
 			unlocked: false
 		},
+		dotTier1: {
+			cost: new Decimal(10),
+			amount: new Decimal(0),
+			multiplier: new Decimal(1),
+			bought: 0,
+			costMult: 1.12,
+			unlocked: true
+		},
+		dotTier2: {
+			cost: new Decimal(100),
+			amount: new Decimal(0),
+			multiplier: new Decimal(1),
+			bought: 0,
+			costMult: 1.14,
+			unlocked: true
+		},
+		dotTier3: {
+			cost: new Decimal(1000),
+			amount: new Decimal(0),
+			multiplier: new Decimal(1),
+			bought: 0,
+			costMult: 1.16,
+			unlocked: true
+		},
+		dotTier4: {
+			cost: new Decimal(1e5),
+			amount: new Decimal(0),
+			multiplier: new Decimal(1),
+			bought: 0,
+			costMult: 1.18,
+			unlocked: false
+		},
+		dotTier5: {
+			cost: new Decimal(1e8),
+			amount: new Decimal(0),
+			multiplier: new Decimal(1),
+			bought: 0,
+			costMult: 1.20,
+			unlocked: false
+		},
+		dotTier6: {
+			cost: new Decimal(1e12),
+			amount: new Decimal(0),
+			multiplier: new Decimal(1),
+			bought: 0,
+			costMult: 1.22,
+			unlocked: false
+		},
+		dotTier7: {
+			cost: new Decimal(1e20),
+			amount: new Decimal(0),
+			multiplier: new Decimal(1),
+			bought: 0,
+			costMult: 1.24,
+			unlocked: false
+		},
+		dotTier8: {
+			cost: new Decimal(1e30),
+			amount: new Decimal(0),
+			multiplier: new Decimal(1),
+			bought: 0,
+			costMult: 1.26,
+			unlocked: false
+		},
+		dotTier9: {
+			cost: new Decimal(1e43),
+			amount: new Decimal(0),
+			multiplier: new Decimal(1),
+			bought: 0,
+			costMult: 1.28,
+			unlocked: false
+		},
+		dotTier10: {
+			cost: new Decimal(1e60),
+			amount: new Decimal(0),
+			multiplier: new Decimal(1),
+			bought: 0,
+			costMult: 1.30,
+			unlocked: false
+		},
 		lastTick: new Date().getTime(),
 		version: 0
 	};
@@ -98,6 +178,7 @@ function produce(offline) {
 	player.points = player.points.plus(getProductionAmount(1).times(offline));
 	for(let i = 1; i < 10; i++) {
 		player["tier"+i].amount = player["tier"+i].amount.plus(getProductionAmount(i+1).times(offline));
+		player["dotTier"+i].amount = player["dotTier"+i].amount.plus(getDotProductionAmount(i+1).times(offline));
 	}
 	update();
 }
@@ -151,15 +232,26 @@ function update() {
 	document.getElementById("points").innerHTML = formatValue("Standard", player.points, 3, 0);
 	for (let i = 1; i <= 10; i++) {
 		let str = "tier" + i + "Amount";
+		let dstr = "dotTier" + i + "Amount";
 		document.getElementById(str).innerHTML = formatValue("Standard", player["tier" + i].amount, 3, 0);
+		document.getElementById(dstr).innerHTML = formatValue("Standard", player["dotTier" + i].amount, 3, 0);
 		document.getElementById("buy" + i).innerHTML = "Cost: " + formatValue("Standard", player["tier" + i].cost, 3, 0);
+		document.getElementById("buyDot" + i).innerHTML = "Cost: " + formatValue("Standard", player["dotTier" + i].cost + "line segments", 3, 0);
 		document.getElementById("mult" + i).innerHTML = "x" + formatValue("Standard", getGenMult(i), 3, 3);
+		document.getElementById("dotMult" + i).innerHTML = "x" + formatValue("Standard", getDotMult(i),3, 3);
 		if(canBuyGen(i)) {
 			document.getElementById("buy" + i).className = "button";
 			document.getElementById("buy" + i + "Max").className = "button";
 		} else {
 			document.getElementById("buy" + i).className = "buttonlocked";
 			document.getElementById("buy" + i + "Max").className = "buttonlocked";
+		}
+		if(canBuyDot(i)) {
+			document.getElementById("buyDot" + i).className = "button";
+			document.getElementById("buyDot" + i + "Max").className = "button";
+		} else {
+			document.getElementById("buyDot" + i).className = "buttonlocked";
+			document.getElementById("buyDot" + i + "Max").className = "buttonlocked";
 		}
 	}
 	for (let i = 1; i < player.ls.potentialUpgrades.length-1; i++) {
@@ -183,6 +275,11 @@ function update() {
 	} else {
 		document.getElementById("lineSegments").style.display = "none";
 		document.getElementById("lineTab").style.display="none";
+	}
+	if(player.ls.upgrades[18] > 0) {
+		document.getElementById("dotTab").style.display="";
+	} else {
+		document.getElementById("dotTab").style.display="none";
 	}
 	document.getElementById("lsAmount").innerHTML = formatValue("Standard", player.ls.amount, 3, 0);
 }
