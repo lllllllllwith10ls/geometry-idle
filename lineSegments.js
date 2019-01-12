@@ -2,6 +2,12 @@ function buyUpgrade(upgrade) {
 	if(canBuyUpgrade(upgrade)) {
 		let index = player.ls.potentialUpgrades.indexOf(upgrade);
 		player.ls.amount = player.ls.amount.minus(player.ls.costs[index]);
+		if (index == 18) {
+			if (player.ls.upgrades[index] == 0) {
+				player.ls.upgrades[index] = 1;
+				document.getElementById("DG").innerHTML = "Dot Generators<br/>unlocked!";
+			}
+		}
 		if (index > 7) {
 			player.ls.upgrades[index]++;
 			let upg = index-7;
