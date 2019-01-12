@@ -12,6 +12,7 @@
 		<button id="saveButton" onclick="save()" class="button">Save Game</button>
 		<button id="genTab" onclick="showTab('generators')" class="button">Point Generators</button>
 		<button id="lineTab" onclick="showTab('lines')" class="button" style="display:none">Line Upgrades</button>
+		<button id="dotTab" onclick="showTab('dots')" class="button" style="display:none">Dot Generators</button>
 		<p>You have <span id="points">0</span> points</p>
 		<button onclick="player.points=player.points.plus(1)" class="button">Get points</button>
 		<div id='generators' class='tab' style='display:block'>
@@ -246,7 +247,162 @@
 					Cost: 120 line segments
 				</button>
 			</div>
+			<button id="DG" class="upgrade button" onclick="buyUpgrade('DG')">
+				Unlock Dot Generators<br/>
+				Cost: 200 line segments
+			</button>
 		</div>
+		<div id="dots" class="tab" style="display:none">
+			<p>You have <span id="dots">0</span> dots</p>
+			<table style="width:100%">
+				<tbody id="parent">
+					<tr class='verylarge'>
+						<td colspan=4 align="right">
+							<button onclick="maxAllDots()" class="button" style="display:none">Max All</button>
+						</td>
+					</tr>
+					<tr id="dotRow1">
+						<td>
+							Tier 1 dot generator <span id="dotMult1">x1</span>
+						</td>
+						<td>
+							<div id="dotTier1Amount">0</div>
+						</td>
+						<td>
+							<button id="buyDot1" onclick="buyDot(1)" align="right" class="button">Cost: 10 LS</button>
+						</td>
+						<td align="right">
+							<button id="buyDot1Max" onclick="buyMaxDot(1)" align="right" class="button">Buy Max</button>
+						</td>
+					</tr>
+					<tr id="dotRow2" style="display: none;">
+						<td>
+							Tier 2 dot generator <span id="dotMult2">x1</span>
+						</td>
+						<td>
+							<div id="dotTier2Amount">0</div>
+						</td>
+						<td>
+							<button id="buyDot2" onclick="buyDot(2)" align="right" class="button">Cost: 100 LS</button>
+						</td>
+						<td align="right">
+							<button id="buyDot2Max" onclick="buyMaxDot(2)" align="right" class="button">Buy Max</button>
+						</td>
+					</tr>
+					<tr id="dotRow3" style="display: none;">
+						<td>
+							Tier 3 dot generator <span id="dotMult3">x1</span>
+						</td>
+						<td>
+							<div id="dotTier3Amount">0</div>
+						</td>
+						<td>
+							<button id="buyDot3" onclick="buyDot(3)" align="right" class="button">Cost: 1000 LS</button>
+						</td>
+						<td align="right">
+							<button id="buyDot3Max" onclick="buyMaxDot(3)" align="right" class="button">Buy Max</button>
+						</td>
+					</tr>
+					<tr id="dotRow4" style="display: none;">
+						<td>
+							Tier 4 dot generator <span id="dotMult4">x1</span>
+						</td>
+						<td>
+							<div id="dotTier4Amount">0</div>
+						</td>
+						<td>
+							<button id="buyDot4" onclick="buyDot(4)" align="right" class="button">Cost: blef</button>
+						</td>
+						<td align="right">
+							<button id="buyDot4Max" onclick="buyMaxDot(4)" align="right" class="button">Buy Max</button>
+							</td>
+					</tr>
+					<tr id="dotRow5" style="display: none;">
+						<td>
+							Tier 5 dot generator <span id="dotMult5">x1</span>
+						</td>
+						<td>
+							<div id="dotTier5Amount">0</div>
+						</td>
+						<td>
+							<button id="buyDot5" onclick="buyDot(5)" align="right" class="button">Cost: 1000</button>
+						</td>
+						<td align="right">
+							<button id="buyDot5Max" onclick="buyMaxDot(5)" align="right" class="button">Buy Max</button>
+						</td>
+					</tr>
+					<tr id="dotRow6" style="display: none;">
+						<td>
+							Tier 6 dot generator <span id="dotMult6">x1</span>
+						</td>
+						<td>
+							<div id="dotTier6Amount">0</div>
+						</td>
+						<td>
+							<button id="buyDot6" onclick="buyDot(6)" align="right" class="button">Cost: 1000</button>
+						</td>
+						<td align="right">
+							<button id="buyDot6Max" onclick="buyMaxDot(6)" align="right" class="button">Buy Max</button>
+						</td>
+					</tr>
+					<tr id="dotRow7" style="display: none;">
+						<td>
+							Tier 7 dot generator <span id="dotMult7">x1</span>
+						</td>
+						<td>
+							<div id="dotTier7Amount">0</div>
+						</td>
+						<td>
+							<button id="buyDot7" onclick="buyDot(7)" align="right" class="button">Cost: 1000</button>
+						</td>
+						<td align="right">
+							<button id="buyDot7Max" onclick="buyMaxDot(7)" align="right" class="button">Buy Max</button>
+						</td>
+					</tr>
+					<tr id="dotRow8" style="display: none;">
+						<td>
+							Tier 8 dot generator <span id="dotMult8">x1</span>
+						</td>
+						<td>
+							<div id="dotTier8Amount">0</div>
+						</td>
+						<td>
+							<button id="buyDot8" onclick="buyDot(8)" align="right" class="button">Cost: 1000</button>
+						</td>
+						<td align="right">
+							<button id="buyDot8Max" onclick="buyMaxDot(8)" align="right" class="button">Buy Max</button>
+						</td>
+					</tr>
+					<tr id="dotRow9" style="display: none;">
+						<td>
+							Tier 9 dot generator <span id="dotMult9">x1</span>
+						</td>
+						<td>
+							<div id="dotTier9Amount">0</div>
+						</td>
+						<td>
+							<button id="buyDot9" onclick="buyDot(9)" align="right" class="button">Cost: 1000</button>
+						</td>
+						<td align="right">
+							<button id="buyDot9Max" onclick="buyMaxDot(9)" align="right" class="button">Buy Max</button>
+						</td>
+					</tr>
+					<tr id="dotRow10" style="display: none;">
+						<td>
+							Tier 10 dot generator <span id="dotMult10">x1</span>
+						</td>
+						<td>
+							<div id="dotTier10Amount">0</div>
+						</td>
+						<td>
+							<button id="buyDot10" onclick="buyDot(10)" align="right" class="button">Cost: 1000</button>
+						</td>
+						<td align="right">
+							<button id="buyDot10Max" onclick="buyMaxDot(10)" align="right" class="button">Buy Max</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
 		<div id="prestige">
 			<button id="lsButton" align="center" style="display: none;" class="button" onclick="pointReset()">
 				Raise your points to<br/>
