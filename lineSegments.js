@@ -13,13 +13,13 @@ function buyUpgrade(upgrade) {
 			let upg = index-7;
     			if(upgrade.substring(2)>3) {
       				player.ls.costs[index] *= 10;
-				document.getElementById("T"+upg+"DoubleCost").innerHTML *= 10;
+				document.getElementById("T"+upg+"DoubleCost").innerHTML = player.ls.costs[index];
    			}
     			else {
      	 			player.ls.costs[index] *= 5;
-				document.getElementById("T"+upg+"DoubleCost").innerHTML *= 5;
+				document.getElementById("T"+upg+"DoubleCost").innerHTML = player.ls.costs[index];
     			}
-			document.getElementById("T"+upg+"DoubleCount").innerHTML *= 2;
+			document.getElementById("T"+upg+"DoubleCount").innerHTML = player.ls.upgrades[index]*2;
 		}
 		else {
 			if (player.ls.upgrades[index] == 0) {
