@@ -1,6 +1,7 @@
 function getDefaultSave() {
 	return {
 		points: new Decimal(0),
+		dots: new Decimal(0),
 		tier1: {
 			cost: new Decimal(10),
 			amount: new Decimal(0),
@@ -176,6 +177,7 @@ let player = getDefaultSave();
 
 function produce(offline) {
 	player.points = player.points.plus(getProductionAmount(1).times(offline));
+	player.dots = player.dots.plus(getDotProductionAmount(1).times(offline));
 	for(let i = 1; i < 10; i++) {
 		player["tier"+i].amount = player["tier"+i].amount.plus(getProductionAmount(i+1).times(offline));
 		player["dotTier"+i].amount = player["dotTier"+i].amount.plus(getDotProductionAmount(i+1).times(offline));
@@ -230,13 +232,14 @@ function showTab(tabName) {
 function update() {
 	showTiers();
 	document.getElementById("points").innerHTML = formatValue("Standard", player.points, 3, 0);
+	document.getElementById("dots").innerHTML = formatValue("Standard", player.dots, 3, 0);
 	for (let i = 1; i <= 10; i++) {
 		let str = "tier" + i + "Amount";
 		let dstr = "dotTier" + i + "Amount";
 		document.getElementById(str).innerHTML = formatValue("Standard", player["tier" + i].amount, 3, 0);
 		document.getElementById(dstr).innerHTML = formatValue("Standard", player["dotTier" + i].amount, 3, 0);
 		document.getElementById("buy" + i).innerHTML = "Cost: " + formatValue("Standard", player["tier" + i].cost, 3, 0);
-		document.getElementById("buyDot" + i).innerHTML = "Cost: " + formatValue("Standard", player["dotTier" + i].cost, 3, 0) + "line segments";
+		document.getElementById("buyDot" + i).innerHTML = "Cost: " + formatValue("Standard", player["dotTier" + i].cost, 3, 0) + " line segments";
 		document.getElementById("mult" + i).innerHTML = "x" + formatValue("Standard", getGenMult(i), 3, 3);
 		document.getElementById("dotMult" + i).innerHTML = "x" + formatValue("Standard", getDotMult(i),3, 3);
 		if(canBuyGen(i)) {
