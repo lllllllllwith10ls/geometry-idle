@@ -371,6 +371,12 @@ function stringToSave(newSave, base) {
 	}
 	return newSave;
 }
+function clear() {
+	if (confirm("This is not reversible. Delete your save file?")) {
+		player = getDefaultPlayer();
+		update();
+	}
+}
 function gameLoop() {
 	let newTime = new Date().getTime()
 	let diff = (newTime - player.lastTick) / 1000;
