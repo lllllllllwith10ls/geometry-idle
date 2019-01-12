@@ -375,7 +375,7 @@ function stringToSave(newSave, base) {
 }
 function clear() {
 	if (confirm("This is not reversible. Delete your save file?")) {
-		player = getDefaultPlayer();
+		player = getDefaultSave();
 		update();
 	}
 }
