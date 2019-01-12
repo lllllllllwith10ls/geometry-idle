@@ -265,7 +265,7 @@ function update() {
 		if (i > 8 && i < 18) {
 			let num = i - 7;
 			document.getElementById("T"+num+"DoubleCost").innerHTML = player.ls.costs[i];
-			document.getElementById("T"+num+"DoubleCount").innerHTML = player.ls.upgrades[i]*2;
+			document.getElementById("T"+num+"DoubleCount").innerHTML = Math.max(player.ls.upgrades[i]*2,1);
 		}
 		let name = player.ls.potentialUpgrades[i];
 		if (player.ls.amount.gte(player.ls.costs[i])) {
@@ -360,12 +360,6 @@ function stringToSave(newSave, base) {
 	for (var i = 0; i < keySet.length; i++){
 		if(!newSave.hasOwnProperty(keySet[i])) {
 			newSave[keySet[i]] = base[keySet[i]];
-			//if(Object.keys(base[keySet[i]].length > 1)) {
-			//	newSave[keySet[i]] = stringToSave(newSave[keySet[i]], base[keySet[i]]);
-			//}
-			//else {
-		//		newSave[keySet[i]] = base[keySet[i]];
-			//}
 		}
 		else {
 			if(base[keySet[i]] instanceof Decimal) {
