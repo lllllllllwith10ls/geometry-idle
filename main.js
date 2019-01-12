@@ -229,6 +229,7 @@ function showTab(tabName) {
 		if (tab.id === tabName) {
 			tab.style.display = 'block';
 			player.currentTab = tabName;
+		}
 		else tab.style.display = 'none';
 	}
 }
