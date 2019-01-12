@@ -264,8 +264,8 @@ function update() {
 	for (let i = 1; i < player.ls.potentialUpgrades.length; i++) {
 		if (i < 8) {
 			let num = i + 3;
-			document.getElementById("T"+num+"DoubleCost").innerHTML = player.ls.costs[index];
-			document.getElementById("T"+num+"DoubleCount").innerHTML = player.ls.upgrades[index]*2;
+			document.getElementById("T"+num+"DoubleCost").innerHTML = player.ls.costs[i];
+			document.getElementById("T"+num+"DoubleCount").innerHTML = player.ls.upgrades[i]*2;
 		}
 		let name = player.ls.potentialUpgrades[i];
 		if (player.ls.amount.gte(player.ls.costs[i])) {
