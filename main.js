@@ -261,12 +261,12 @@ function update() {
 			document.getElementById("buyDot" + i + "Max").className = "buttonlocked";
 		}
 	}
+	for (let i = 8; i < 18; i++) {
+		let num = i - 7;
+		document.getElementById("T"+num+"DoubleCost").innerHTML = player.ls.costs[i];
+		document.getElementById("T"+num+"DoubleCount").innerHTML = Math.max(player.ls.upgrades[i]*2,1);
+	}
 	for (let i = 1; i < player.ls.potentialUpgrades.length; i++) {
-		if (i > 8 && i < 18) {
-			let num = i - 7;
-			document.getElementById("T"+num+"DoubleCost").innerHTML = player.ls.costs[i];
-			document.getElementById("T"+num+"DoubleCount").innerHTML = Math.max(player.ls.upgrades[i]*2,1);
-		}
 		let name = player.ls.potentialUpgrades[i];
 		if (player.ls.amount.gte(player.ls.costs[i])) {
 			document.getElementById(name).className = "button";
