@@ -344,11 +344,22 @@ function saveToString(save) {
 function stringToSave(newSave, base) {
 	var keySet = Object.keys(base);
 	for (var i = 0; i < keySet.length; i++){
-		if(base[keySet[i]] instanceof Decimal) {
-			newSave[keySet[i]] = new Decimal(newSave[keySet[i]]);
+		if(!newSave.hasOwnProperty(base[keySet[i]])) {
+			newSave[keySet[i]] = "";
+			if(Object.keys(base[keySet[i]].length > 1)) {
+				newSave[keySet[i]] = stringToSave(newSave[keySet[i]], base[keySet[i]]);
+			}
+			else {
+				newSave[keySet[i]] = base[keySet[i]];
+			}
 		}
-		else if(Object.keys(newSave[keySet[i]]).length > 1) {
-			newSave[keySet[i]] = stringToSave(newSave[keySet[i]], base[keySet[i]]);
+		else {
+			if(base[keySet[i]] instanceof Decimal) {
+				newSave[keySet[i]] = new Decimal(newSave[keySet[i]]);
+			}
+			else if(Object.keys(newSave[keySet[i]]).length > 1) {
+				newSave[keySet[i]] = stringToSave(newSave[keySet[i]], base[keySet[i]]);
+			}
 		}
 	}
 	return newSave;
