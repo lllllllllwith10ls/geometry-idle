@@ -4,7 +4,8 @@ function getGenMult(tier) {
 	if (lineUpgrade>0) {
 		multi = multi.times(lineUpgrade*2);
 	}
-	let dotBonus = player.dotTier1.amount.sqrt().plus(1);
+	let dotBonus = player.dots.sqrt().plus(1);
+	document.getElementById("dotBonus").innerHTML = dotBonus;
 	multi = multi.times(dotBonus);
 	player["tier"+tier].multiplier = multi;
 	return multi;
