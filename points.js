@@ -2,7 +2,7 @@ function getGenMult(tier) {
 	let multi = new Decimal(1.015).pow(player["tier"+tier].bought);
 	let lineUpgrade = player.ls.upgrades[7+tier];
 	if (lineUpgrade>0) {
-		multi = multi.times(upgrade*2);
+		multi = multi.times(lineUpgrade*2);
 	}
 	let dotBonus = player.dotTier1.amount.sqrt().plus(1);
 	multi = multi.times(dotBonus);
