@@ -169,6 +169,7 @@ function getDefaultSave() {
 			costMult: 1.30,
 			unlocked: false
 		},
+		currentTab: "generators";
 		lastTick: new Date().getTime(),
 		version: 0
 	};
@@ -225,7 +226,9 @@ function showTab(tabName) {
 	var tab;
 	for (var i = 0; i < tabs.length; i++) {
 		tab = tabs.item(i);
-		if (tab.id === tabName) tab.style.display = 'block';
+		if (tab.id === tabName) {
+			tab.style.display = 'block';
+			player.currentTab = tabName;
 		else tab.style.display = 'none';
 	}
 }
@@ -375,6 +378,7 @@ function gameLoop() {
 }
 function startInterval() {
 	load();
+	showTab(player.currentTab);
   	setInterval(gameLoop, 33);
 	setInterval(save, 6000);
 }
