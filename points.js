@@ -58,6 +58,10 @@ function buyGen(tier) {
 function buyDot(tier) {
 	if(canBuyDot(tier)) {
 		player["dotTier"+tier].bought++;
+		if(player["dotTier"+tier].bought==10) {
+			let tierNext = tier++;
+			document.getElementById("dotRow"+tierNext).style.display = "";
+		}
 		player["dotTier"+tier].amount = player["dotTier"+tier].amount.plus(1);
 		player.points = player.points.minus(player["dotTier"+tier].cost);
 		player["dotTier"+tier].cost = player["dotTier"+tier].cost.times(player["dotTier"+tier].costMult);
