@@ -262,8 +262,8 @@ function update() {
 		}
 	}
 	for (let i = 1; i < player.ls.potentialUpgrades.length; i++) {
-		if (i < 8) {
-			let num = i + 3;
+		if (i > 8) {
+			let num = i - 7;
 			document.getElementById("T"+num+"DoubleCost").innerHTML = player.ls.costs[i];
 			document.getElementById("T"+num+"DoubleCount").innerHTML = player.ls.upgrades[i]*2;
 		}
