@@ -236,7 +236,7 @@ function update() {
 		document.getElementById(str).innerHTML = formatValue("Standard", player["tier" + i].amount, 3, 0);
 		document.getElementById(dstr).innerHTML = formatValue("Standard", player["dotTier" + i].amount, 3, 0);
 		document.getElementById("buy" + i).innerHTML = "Cost: " + formatValue("Standard", player["tier" + i].cost, 3, 0);
-		document.getElementById("buyDot" + i).innerHTML = "Cost: " + formatValue("Standard", player["dotTier" + i].cost + "line segments", 3, 0);
+		document.getElementById("buyDot" + i).innerHTML = "Cost: " + formatValue("Standard", player["dotTier" + i].cost, 3, 0) + "line segments";
 		document.getElementById("mult" + i).innerHTML = "x" + formatValue("Standard", getGenMult(i), 3, 3);
 		document.getElementById("dotMult" + i).innerHTML = "x" + formatValue("Standard", getDotMult(i),3, 3);
 		if(canBuyGen(i)) {
