@@ -285,6 +285,8 @@ function update() {
 	}
 	if(player.ls.upgrades[18] > 0) {
 		document.getElementById("dotTab").style.display="";
+		document.getElementById("DG").className = "buttonlocked";
+		document.getElementById("DG").innerHTML = "Dot Generators Unlocked!";
 	} else {
 		document.getElementById("dotTab").style.display="none";
 	}
