@@ -268,9 +268,9 @@ function update() {
 	}
 	for (let i = 1; i < 8; i++) {
 		if (player.ls.upgrades[i] > 0) {
-			document.getElementById("T"+i).className = "buttonlocked";
 			let num = i + 3;
-			document.getElementById("T"+i).innerHTML = "Tier "+num+" generator<br/>unlocked!"
+			document.getElementById("T"+num).className = "buttonlocked";
+			document.getElementById("T"+num).innerHTML = "Tier "+num+" generator<br/>unlocked!"
 		}
 	}
 	for (let i = 1; i < player.ls.potentialUpgrades.length; i++) {
