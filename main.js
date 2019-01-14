@@ -271,6 +271,7 @@ function update() {
 			let num = i + 3;
 			document.getElementById("T"+num).className = "buttonlocked";
 			document.getElementById("T"+num).innerHTML = "Tier "+num+" generator<br/>unlocked!"
+			document.getElementById("DT"+num).style.display = "";
 		}
 	}
 	for (let i = 1; i < player.ls.potentialUpgrades.length; i++) {
