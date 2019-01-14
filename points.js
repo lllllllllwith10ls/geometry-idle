@@ -4,9 +4,11 @@ function getGenMult(tier) {
 	if (lineUpgrade>0) {
 		multi = multi.times(lineUpgrade*2);
 	}
-	let dotBonus = player.dots.log10().plus(1);
-	document.getElementById("dotBonus").innerHTML = formatValue("Standard", dotBonus, 3, 0);
-	multi = multi.times(dotBonus);
+	if (player.dots.gte(1)) {
+		let dotBonus = player.dots.log10();
+		document.getElementById("dotBonus").innerHTML = formatValue("Standard", dotBonus, 3, 0);
+		multi = multi.times(dotBonus);
+	}
 	player["tier"+tier].multiplier = multi;
 	return multi;
 }
