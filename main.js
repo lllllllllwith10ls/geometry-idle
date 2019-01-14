@@ -266,6 +266,13 @@ function update() {
 		document.getElementById("T"+num+"DoubleCost").innerHTML = player.ls.costs[i];
 		document.getElementById("T"+num+"DoubleCount").innerHTML = Math.max(player.ls.upgrades[i]*2,1);
 	}
+	for (let i = 1; i < 8; i++) {
+		if (player.ls.upgrades[i] > 0) {
+			document.getElementById("T"+i).className = "buttonlocked";
+			let num = i + 3;
+			document.getElementById("T"+i).innerHTML = "Tier "+num+" generator<br/>unlocked!"
+		}
+	}
 	for (let i = 1; i < player.ls.potentialUpgrades.length; i++) {
 		let name = player.ls.potentialUpgrades[i];
 		if (player.ls.amount.gte(player.ls.costs[i])) {
