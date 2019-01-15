@@ -5,7 +5,12 @@ function getGenMult(tier) {
 		multi = multi.times(lineUpgrade*2);
 	}
 	if (player.dots.gte(1)) {
-		let dotBonus = player.dots.log10();
+		if(player.dots.gte(10)) {
+		   	let dotBonus = player.dots.log10();
+		}
+		else {
+			let dotBonus = 1;
+		}
 		document.getElementById("dotBonus").innerHTML = formatValue("Standard", dotBonus, 3, 2);
 		multi = multi.times(dotBonus);
 	}
