@@ -204,7 +204,7 @@ function pointReset() {
 	}
 }
 function getLSAmount() {
-	return player.points.root(11.5).divide(4);
+	return player.points.root(11.5).divide(4).floor();
 }
 
 function showTiers() {
