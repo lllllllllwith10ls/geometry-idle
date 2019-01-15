@@ -1,4 +1,4 @@
-function getDefaultSave() {
+function getDefaultSave() { //Create a new 
 	return {
 		points: new Decimal(0),
 		dots: new Decimal(0),
@@ -264,7 +264,7 @@ function update() {
 	for (let i = 8; i < 18; i++) {
 		let num = i - 7;
 		document.getElementById("T"+num+"DoubleCost").innerHTML = player.ls.costs[i];
-		document.getElementById("T"+num+"DoubleCount").innerHTML = Math.max(player.ls.upgrades[i]*2,1);
+		document.getElementById("T"+num+"DoubleCount").innerHTML = Math.pow(2, player.ls.upgrades[i]);
 	}
 	for (let i = 1; i < 8; i++) {
 		if (player.ls.upgrades[i] > 0) {
