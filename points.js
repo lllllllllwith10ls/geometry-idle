@@ -6,7 +6,7 @@ function getGenMult(tier) {
 	}
 	if (player.dots.gte(1)) {
 		let dotBonus = player.dots.log10();
-		document.getElementById("dotBonus").innerHTML = formatValue("Standard", dotBonus, 3, 0);
+		document.getElementById("dotBonus").innerHTML = formatValue("Standard", dotBonus, 3, 2);
 		multi = multi.times(dotBonus);
 	}
 	player["tier"+tier].multiplier = multi;
