@@ -66,7 +66,9 @@ function buyDot(tier) {
 		player["dotTier"+tier].cost = player["dotTier"+tier].cost.times(player["dotTier"+tier].costMult);
 		if(player["dotTier"+tier].bought>=10) {
 			let tierNext = tier + 1;
-			document.getElementById("dotRow"+tierNext).style.display = "";
+			if(player["dotTier"+tierNext].unlocked){
+				document.getElementById("dotRow"+tierNext).style.display = "";
+			}
 		}
 	}
 	player.points = p;
