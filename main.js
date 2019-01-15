@@ -288,7 +288,9 @@ function update() {
 		if(player["dotTier"+i].amount.gte(9)) {
 			player["dotRow"+j].style.display = "";
 		}
-		else(player["dotRow"+j].style.display = "none";
+		else {
+			player["dotRow"+j].style.display = "none";
+		}
 	}
 	if(getLSAmount().gte(1)) {
 		document.getElementById("lsButton").style.display = "";
