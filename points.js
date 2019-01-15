@@ -5,7 +5,7 @@ function getGenMult(tier) {
 		multi = multi.times(lineUpgrade*2);
 	}
 	if (player.dots.gte(1)) {
-		let dotBonus = player.dots.log10().max(1);
+		let dotBonus = Decimal.max(player.dots.log10(), 1);
 		document.getElementById("dotBonus").innerHTML = formatValue("Standard", dotBonus, 3, 2);
 		multi = multi.times(dotBonus);
 	}
