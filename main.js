@@ -286,10 +286,10 @@ function update() {
 	for (let i = 1; i < 10; i++) {
 		let j = i++;
 		if(player["dotTier"+i].amount.gte(9)) {
-			player["dotRow"+j].style.display = "";
+			document.getElementById("dotRow"+j).style.display = "";
 		}
 		else {
-			player["dotRow"+j].style.display = "none";
+			document.getElementById("dotRow"+j).style.display = "none";
 		}
 	}
 	if(getLSAmount().gte(1)) {
