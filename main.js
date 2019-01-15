@@ -284,7 +284,7 @@ function update() {
 		}
 	}
 	for (let i = 1; i < 10; i++) {
-		let j = i++;
+		let j = i + 1;
 		if(player["dotTier"+i].amount.gte(9)) {
 			document.getElementById("dotRow"+j).style.display = "";
 		}
