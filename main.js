@@ -283,6 +283,12 @@ function update() {
 			document.getElementById(name).className = "buttonlocked";
 		}
 	}
+	for (let i = 1; i < 10; i++) {
+		if(player["dotTier"+i].amount.gte(9)) {
+			let j = i++;
+			player["dotRow"+j].style.display = "";
+		}
+	}
 	if(getLSAmount().gte(1)) {
 		document.getElementById("lsButton").style.display = "";
 	} else {
