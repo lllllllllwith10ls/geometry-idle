@@ -284,10 +284,11 @@ function update() {
 		}
 	}
 	for (let i = 1; i < 10; i++) {
+		let j = i++;
 		if(player["dotTier"+i].amount.gte(9)) {
-			let j = i++;
 			player["dotRow"+j].style.display = "";
 		}
+		else(player["dotRow"+j].style.display = "none";
 	}
 	if(getLSAmount().gte(1)) {
 		document.getElementById("lsButton").style.display = "";
