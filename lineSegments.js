@@ -18,7 +18,7 @@ function buyUpgrade(upgrade) {
      	 			player.ls.costs[index] *= 5;
     			}
 			document.getElementById("T"+upg+"DoubleCost").innerHTML = player.ls.costs[index];
-			document.getElementById("T"+upg+"DoubleCount").innerHTML = Math.pow(player.ls.upgrades[index], 2);
+			document.getElementById("T"+upg+"DoubleCount").innerHTML = Math.pow(2, player.ls.upgrades[index]);
 		}
 		else {
 			if (player.ls.upgrades[index] == 0) {
