@@ -177,6 +177,10 @@ function getDefaultSave() { //Create a new
 }
 let player = getDefaultSave();
 
+for (let i = 1; i < player.ls.costs.length; i++) {
+	player.ls.costs[i] = new Decimal(player.ls.costs[i]);
+}
+
 function produce(offline) {
 	player.points = player.points.plus(getProductionAmount(1).times(offline));
 	player.dots = player.dots.plus(getDotProductionAmount(1).times(offline));
