@@ -170,6 +170,7 @@ function getDefaultSave() { //Create a new
 			unlocked: false
 		},
 		currentTab: "generators",
+		notation: "Standard",
 		lastTick: new Date().getTime(),
 		version: 0
 	};
@@ -235,17 +236,17 @@ function showTab(tabName) {
 }
 function update() {
 	showTiers();
-	document.getElementById("points").innerHTML = formatValue("Standard", player.points, 3, 0);
-	document.getElementById("dots").innerHTML = formatValue("Standard", player.dots, 3, 0);
+	document.getElementById("points").innerHTML = formatValue(player.notation, player.points, 3, 0);
+	document.getElementById("dots").innerHTML = formatValue(player.notation, player.dots, 3, 0);
 	for (let i = 1; i <= 10; i++) {
 		let str = "tier" + i + "Amount";
 		let dstr = "dotTier" + i + "Amount";
-		document.getElementById(str).innerHTML = formatValue("Standard", player["tier" + i].amount, 3, 0);
-		document.getElementById(dstr).innerHTML = formatValue("Standard", player["dotTier" + i].amount, 3, 0);
-		document.getElementById("buy" + i).innerHTML = "Cost: " + formatValue("Standard", player["tier" + i].cost, 3, 0);
-		document.getElementById("buyDot" + i).innerHTML = "Cost: " + formatValue("Standard", player["dotTier" + i].cost, 3, 0) + " line segments";
-		document.getElementById("mult" + i).innerHTML = "x" + formatValue("Standard", getGenMult(i), 3, 3);
-		document.getElementById("dotMult" + i).innerHTML = "x" + formatValue("Standard", getDotMult(i),3, 3);
+		document.getElementById(str).innerHTML = formatValue(player.notation, player["tier" + i].amount, 3, 0);
+		document.getElementById(dstr).innerHTML = formatValue(player.notation, player["dotTier" + i].amount, 3, 0);
+		document.getElementById("buy" + i).innerHTML = "Cost: " + formatValue(player.notation, player["tier" + i].cost, 3, 0);
+		document.getElementById("buyDot" + i).innerHTML = "Cost: " + formatValue(player.notation, player["dotTier" + i].cost, 3, 0) + " line segments";
+		document.getElementById("mult" + i).innerHTML = "x" + formatValue(player.notation, getGenMult(i), 3, 3);
+		document.getElementById("dotMult" + i).innerHTML = "x" + formatValue(player.notation, getDotMult(i),3, 3);
 		if(canBuyGen(i)) {
 			document.getElementById("buy" + i).className = "button";
 			document.getElementById("buy" + i + "Max").className = "button";
