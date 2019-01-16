@@ -25,8 +25,8 @@ function buyUpgrade(upgrade) {
      	 				player.ls.costs[index] *= 5;
 				}
     			}
-			document.getElementById("T"+upg+"DoubleCost").innerHTML = player.ls.costs[index];
-			document.getElementById("T"+upg+"DoubleCount").innerHTML = Math.pow(2, player.ls.upgrades[index]);
+			document.getElementById("T"+upg+"DoubleCost").innerHTML = formatValue(player.notation, player.ls.costs[index], 3, 0)
+			document.getElementById("T"+upg+"DoubleCount").innerHTML = formatValue(player.notation, Math.pow(2, player.ls.upgrades[index]), 3, 0);
 		}
 		else {
 			if (player.ls.upgrades[index] == 0) {
