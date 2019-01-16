@@ -12,10 +12,18 @@ function buyUpgrade(upgrade) {
 			player.ls.upgrades[index]++;
 			let upg = index-7;
     			if(upgrade.substring(2)>3) {
-      				player.ls.costs[index] *= 10;
+				if (player.ls.upgrades[index] > 4) {
+					player.ls.costs[index] *= 20;
+				} else {
+      					player.ls.costs[index] *= 10;
+				}
    			}
     			else {
-     	 			player.ls.costs[index] *= 5;
+				if (player.ls.upgrades[index] > 4) {
+					player.ls.costs[index] *= 10;
+				} else {
+     	 				player.ls.costs[index] *= 5;
+				}
     			}
 			document.getElementById("T"+upg+"DoubleCost").innerHTML = player.ls.costs[index];
 			document.getElementById("T"+upg+"DoubleCount").innerHTML = Math.pow(2, player.ls.upgrades[index]);
