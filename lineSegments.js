@@ -13,16 +13,16 @@ function buyUpgrade(upgrade) {
 			let upg = index-7;
     			if(upgrade.substring(2)>3) {
 				if (player.ls.upgrades[index] > 4) {
-					player.ls.costs[index] *= 20;
+					player.ls.costs[index] = player.ls.costs[index].times(20);
 				} else {
-      					player.ls.costs[index] *= 10;
+      					player.ls.costs[index] = player.ls.costs[index].times(10);
 				}
    			}
     			else {
 				if (player.ls.upgrades[index] > 4) {
-					player.ls.costs[index] *= 10;
+					player.ls.costs[index] = player.ls.costs[index].times(10);
 				} else {
-     	 				player.ls.costs[index] *= 5;
+     	 				player.ls.costs[index] = player.ls.costs[index].times(5);
 				}
     			}
 			document.getElementById("T"+upg+"DoubleCost").innerHTML = formatValue(player.notation, player.ls.costs[index], 3, 0)
@@ -44,7 +44,7 @@ function canBuyUpgrade(upgrade) {
 		if(player.ls.upgrades[index]==1&&index<8) {
 			return false;
 		}
-		if(new Decimal(player.ls.costs[index]).lte(player.ls.amount)) {
+		if(player.ls.costs[index].lte(player.ls.amount)) {
 			return true;
 		}		
 		return false;
