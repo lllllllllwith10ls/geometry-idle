@@ -9,11 +9,43 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body onload="startInterval()">
-		<button id="saveButton" onclick="save()" class="button">Save Game</button>
-		<button id="clearSave" onclick="clearSave()" class="button">Clear Save</button>
+		<button id="options" onclick="showTab('options')" class="button">Options</button>
 		<button id="genTab" onclick="showTab('generators')" class="button">Point Generators</button>
 		<button id="lineTab" onclick="showTab('lineUpgrades')" class="button" style="display:none">Line Upgrades</button>
 		<button id="dotTab" onclick="showTab('dotGenerators')" class="button" style="display:none">Dot Generators</button>
+		<div id='options' class='tab' style='display:none'>
+			<div id='savingstuff'>
+				<button id="saveButton" onclick="save()" class="button">Save Game</button>
+				<button id="clearSave" onclick="clearSave()" class="buttonlocked">Clear Save</button>
+				<button id="exportButton" onclick="exportSave()" class="button">Export Save</button>
+				<button id="importButton" onclick="importSave()" class="button">Import Save</button>
+			</div>
+			<div>Choose your Notation</div>
+			<div id='notationstuff'>
+				<button id="stand" onclick="player.notation = 'Standard'" class="button">Standard</button>
+				<button id="mixsci" onclick="player.notation = 'Mixed Scientific'" class="button">Mixed Scientific</button>
+				<button id="engin" onclick="player.notation = 'Engineering'" class="button">Engineering</button>
+				<button id="mixengin" onclick="player.notation = 'Mixed Engineering'" class="button">Mixed Engineering</button>
+				<button id="hypersci" onclick="player.notation = 'Hyperscientific'" class="button">Hyperscientific</button>
+				<button id="aas" onclick="player.notation = 'AAS'" class="button">AAS</button>
+			</div>
+			<div>
+				<button id="tet" onclick="player.notation = 'Tetration'" class="button">Tetration</button>
+				<button id="log" onclick="player.notation = 'Logarithm'" class="button">Logarithm</button>
+				<button id="psi" onclick="player.notation = 'Psi'" class="button">Psi</button>
+				<button id="hex" onclick="player.notation = 'Hexadecimal'" class="button">Hexadecimal</button>
+				<button id="infinity" onclick="player.notation = 'Infinity'" class="button">Infinity</button>
+				<button id="af5ln" onclick="player.notation = 'AF5LN'" class="button">AF5LN</button>
+			</div>
+			<div>
+				<button id="letters" onclick="player.notation = 'Letters'" class="button">Letters</button>
+				<button id="country" onclick="player.notation = 'Country Codes'" class="button">Country Codes</button>
+				<button id="brackets" onclick="player.notation = 'Brackets'" class="button">Brackets</button>
+				<button id="greek" onclick="player.notation = 'Greek'" class="button">Greek</button>
+				<button id="iroha" onclick="player.notation = 'Iroha'" class="button">Iroha</button>
+				<button id="emojis" onclick="player.notation = 'Emojis'" class="button">Emojis</button>
+			</div>
+		</div>
 		<div id='generators' class='tab' style='display:block'>
 			<p>You have <span id="points">0</span> points</p>
 			<button onclick="player.points=player.points.plus(1)" class="button">Get points</button>
