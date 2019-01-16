@@ -298,7 +298,7 @@ function update() {
 	} else {
 		document.getElementById("lsButton").style.display = "none";
 	}
-	document.getElementById("LSOnPrestige").innerHTML = formatValue("Standard", getLSAmount(), 3, 0);
+	document.getElementById("LSOnPrestige").innerHTML = formatValue(player.notation, getLSAmount(), 3, 0);
 	if(player.ls.prestiged > 0) {
 		document.getElementById("lineSegments").style.display = "";
 		document.getElementById("lineTab").style.display="";
