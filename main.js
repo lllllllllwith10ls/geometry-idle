@@ -313,7 +313,7 @@ function update() {
 	} else {
 		document.getElementById("dotTab").style.display="none";
 	}
-	document.getElementById("lsAmount").innerHTML = formatValue("Standard", player.ls.amount, 3, 0);
+	document.getElementById("lsAmount").innerHTML = formatValue(player.notation, player.ls.amount, 3, 0);
 }
 function clone(obj) {
 	    var copy;
