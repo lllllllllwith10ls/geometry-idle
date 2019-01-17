@@ -407,7 +407,7 @@ function exportSave() {
 function importSave() {
 	var imp = prompt("Paste your save file here");
 	if(imp==null) alert("That save file doesn't work, sorry.");
-	else player = stringToSave(imp, getDefaultSave());
+	else player = stringToSave(JSON.parse(imp), getDefaultSave());
 }
 function clearSave() {
 	if (confirm("This is not reversible. Delete your save file?")) {
