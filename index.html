@@ -8,12 +8,12 @@
 		<script src="lineSegments.js"></script>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
-	<body style="text-align:center" onload="startInterval()">
+	<body onload="startInterval()">
 		<button id="options" onclick="showTab('options')" class="button">Options</button>
 		<button id="genTab" onclick="showTab('generators')" class="button">Point Generators</button>
 		<button id="lineTab" onclick="showTab('lineUpgrades')" class="button" style="display:none">Line Upgrades</button>
 		<button id="dotTab" onclick="showTab('dotGenerators')" class="button" style="display:none">Dot Generators</button>
-		<div id='options' class='tab' style='display:none'>
+		<div id='options' class='tab' style='display:none, text-align:center'>
 			<div id='savingstuff'>
 				<button id="saveButton" onclick="save()" class="button">Save Game</button>
 				<button id="clearSave" onclick="clearSave()" class="buttonlocked">Clear Save</button>
@@ -198,7 +198,7 @@
 				</tbody>
 			</table>
 		</div>
-		<div id="lineUpgrades" class="tab" style="display:none">
+		<div id="lineUpgrades" class="tab" style="display:none, text-align:center">
 			<div id="doubleUpgrades">
 				<button id="DT1" class="upgrade button" onclick="buyUpgrade('DT1')">
 					Double Tier 1 production<br/>
@@ -438,7 +438,7 @@
 				</tbody>
 			</table>
 		</div>
-		<div id="prestige">
+		<div id="prestige" style="text-align:center">
 			<button id="lsButton" align="center" style="display: none;" class="button" onclick="pointReset()">
 				Raise your points to<br/>
 				a higher dimension<br/>
