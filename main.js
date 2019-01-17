@@ -394,6 +394,21 @@ function stringToSave(newSave, base) {
 	}
 	return newSave;
 }
+function exportSave() {
+	var tempInput = document.createElement("input");
+	tempInput.style = "position: absolute; left: -1000px; top: -1000px";
+	tempInput.value = JSON.stringify(saveToString(player));
+	document.body.appendChild(tempInput);
+	tempInput.select();
+	document.execCommand("copy");
+	document.body.removeChild(tempInput);
+	alert("Save copied to clipboard");
+}
+function importSave() {
+	var imp = prompt("Paste your save file here");
+	if(imp==null) alert("That save file doesn't work, sorry.");
+	else player = stringToSave(imp, getDefaultSave());
+}
 function clearSave() {
 	if (confirm("This is not reversible. Delete your save file?")) {
 		player = getDefaultSave();
