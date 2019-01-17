@@ -44,7 +44,7 @@ function canBuyUpgrade(upgrade) {
 		if(player.ls.upgrades[index]==1&&index<8) {
 			return false;
 		}
-		if(player.ls.costs[index].lte(player.ls.amount)) {
+		if(new Decimal(player.ls.costs[index]).lte(player.ls.amount)) {
 			return true;
 		}		
 		return false;
