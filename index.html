@@ -11,8 +11,9 @@
 	<body onload="startInterval()">
 		<button id="options" onclick="showTab('options')" class="button">Options</button>
 		<button id="genTab" onclick="showTab('generators')" class="button">Point Generators</button>
-		<button id="lineTab" onclick="showTab('lineUpgrades')" class="button" style="display:none">Line Upgrades</button>
+		<button id="lineSegTab" onclick="showTab('lineSegUpgrades')" class="button" style="display:none">Line Segments</button>
 		<button id="dotTab" onclick="showTab('dotGenerators')" class="button" style="display:none">Dot Generators</button>
+		<button id="lineTab" onclick="showTab('lineTab')" class="button" style="display:none">Line Tree</button>
 		<div id='options' class='tab' style='display:none; text-align:center'>
 			<div id='savingstuff'>
 				<button id="saveButton" onclick="save()" class="button">Save Game</button>
@@ -198,7 +199,7 @@
 				</tbody>
 			</table>
 		</div>
-		<div id="lineUpgrades" class="tab" style="display:none; text-align:center">
+		<div id="lineSegUpgrades" class="tab" style="display:none; text-align:center">
 			<div id="doubleUpgrades">
 				<button id="DT1" class="upgrade button" onclick="buyUpgrade('DT1')">
 					Double Tier 1 production<br/>
@@ -437,6 +438,13 @@
 					</tr>
 				</tbody>
 			</table>
+		</div>
+		<div id="lineTab" style="text-align:center">
+			<button id="11" align="center" class="button" onclick="buyTreeItem('11')">
+				Multiply line segments<br/>
+				from all sources by 2<br/>
+				Cost: 1 line
+			</button>
 		</div>
 		<div id="prestige" style="text-align:center">
 			<button id="lsButton" align="center" style="display: none;" class="button" onclick="pointReset()">
