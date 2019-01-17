@@ -169,6 +169,13 @@ function getDefaultSave() { //Create a new
 			costMult: 1.30,
 			unlocked: false
 		},
+		lines: {
+			amount: new Decimal(0),
+			potentialUpgrades: ["11", "21", "31", "41", "51", "61", "71", "81", "91", "101", "111"],
+			upgrades: 	   [   0,    0,    0,    0,    0,    0,    0,    0,    0,     0,     0],
+			costs: 		   [   5,   12,   50,  250,  200,  400,  800, 1600, 3200,  6400, 12800],
+			prestiged: 0
+		},
 		currentTab: "generators",
 		notation: "Standard",
 		lastTick: new Date().getTime(),
