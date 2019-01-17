@@ -50,3 +50,34 @@ function canBuyUpgrade(upgrade) {
 		return false;
 	}
 }
+function getLAmount() {
+        return player.ls.amount.root(15).minus(3).floor();
+}
+function buyTreeItem(item) {
+	if (canBuyTreeItem(item)) {
+		let index = player.lines.potentialUpgrades.indexOf(item);
+		player.lines.amount = player.lines.amount.minus(player.lines.costs[index]);
+		player.lines.upgrades[index]++;
+		if (index > 3 && index < 11) {
+			let num = index - 1;
+			player["dotTier"+num].unlocked = true;
+		}
+		let next = index + 1;
+		document.getElementById(player.lines.potentialUpgrades[next]).className = "button";
+	}
+}
+function canBuyTreeItem(item) {
+	if (player.lines.potentialUpgrades.includes(item)) {
+		let index = player.lines.potentialUpgrades.indexOf(item);
+		if((index!=0)&&(player.lines.upgrades[index-1]==0)) {
+			return false;
+		}
+		if(player.lines.upgrades[index]==1) {
+			return false;
+		}
+		if(new Decimal(player.lines.costs[index].lte(player.lines.amount))) {
+			return true;
+		}
+		return false;
+	}
+}
