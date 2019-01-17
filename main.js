@@ -268,8 +268,8 @@ function update() {
 	}
 	for (let i = 8; i < 18; i++) {
 		let num = i - 7;
-		document.getElementById("T"+num+"DoubleCost").innerHTML = player.ls.costs[i];
-		document.getElementById("T"+num+"DoubleCount").innerHTML = Math.pow(2, player.ls.upgrades[i]);
+		document.getElementById("T"+num+"DoubleCost").innerHTML = formatValue(player.notation, new Decimal(player.ls.costs[i]), 3, 0)
+		document.getElementById("T"+num+"DoubleCount").innerHTML = formatValue(player.notation, new Decimal(Math.pow(2, player.ls.upgrades[i])), 3, 0);
 	}
 	for (let i = 1; i < 8; i++) {
 		if (player.ls.upgrades[i] > 0) {
