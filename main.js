@@ -338,6 +338,7 @@ function update() {
 		document.getElementById("dotTab").style.display="none";
 	}
 	document.getElementById("lsAmount").innerHTML = formatValue(player.notation, player.ls.amount, 3, 0);
+	document.getElementById("lAmount").innerHTML = formatValue(player.notation, player.lines.amount, 3, 0);
 }
 function clone(obj) {
 	    var copy;
