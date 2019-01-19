@@ -86,7 +86,7 @@ function canBuyTreeItem(item) {
 	}
 }
 function lineSegmentReset() {
-	if (getLAmount() > 1) {
+	if (getLAmount() > 0) {
 		player.lines.amount = player.lines.amount.add(getLAmount());
 		let temp = player.ls.prestiged;
 		pointReset();
