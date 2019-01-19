@@ -90,6 +90,9 @@ function lineSegmentReset() {
 		player.lines.amount = player.lines.amount.add(getLAmount());
 		let temp = player.ls.prestiged;
 		pointReset();
+		for(let i = 4; i <= 10; i++) {
+			player["tier"+i].unlocked = "false";
+		}
 		document.getElementById("lineTab").style.display = "";
 		let costs = [null,10,100,1000,1e5,1e8,1e12,1e20,1e30,1e43,1e60];
 		let costMults = [null,1.12,1.14,1.16,1.18,1.2,1.22,1.24,1.26,1.28,1.3];
