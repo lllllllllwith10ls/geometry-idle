@@ -100,6 +100,7 @@ function lineSegmentReset() {
 			player["dotTier"+i].multiplier = new Decimal(1);
 			player["dotTier"+i].bought = 0;
 		}
+		player.dots = new Decimal (0);
 		player.ls = getDefaultSave().ls;
 		player.ls.prestiged = temp;
 		player.lines.prestiged++;
