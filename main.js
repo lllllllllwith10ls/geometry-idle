@@ -278,14 +278,6 @@ function update() {
 		document.getElementById("T"+num+"DoubleCost").innerHTML = formatValue(player.notation, new Decimal(player.ls.costs[i]), 3, 0)
 		document.getElementById("T"+num+"DoubleCount").innerHTML = formatValue(player.notation, new Decimal(Math.pow(2, player.ls.upgrades[i])), 3, 0);
 	}
-	for (let i = 1; i < 8; i++) {
-		if (player.ls.upgrades[i] > 0) {
-			let num = i + 3;
-			document.getElementById("T"+num).className = "buttonlocked";
-			document.getElementById("T"+num).innerHTML = "Tier "+num+" generator<br/>unlocked!"
-			document.getElementById("DT"+num).style.display = "";
-		}
-	}
 	for (let i = 1; i < player.ls.potentialUpgrades.length; i++) {
 		let name = player.ls.potentialUpgrades[i];
 		if (player.ls.amount.gte(player.ls.costs[i])) {
@@ -293,6 +285,14 @@ function update() {
 		}
 		else {
 			document.getElementById(name).className = "buttonlocked";
+		}
+	}
+	for (let i = 1; i < 8; i++) {
+		if (player.ls.upgrades[i] > 0) {
+			let num = i + 3;
+			document.getElementById("T"+num).className = "buttonlocked";
+			document.getElementById("T"+num).innerHTML = "Tier "+num+" generator<br/>unlocked!"
+			document.getElementById("DT"+num).style.display = "";
 		}
 	}
 	for (let i = 1; i < 10; i++) {
