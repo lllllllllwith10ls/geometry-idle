@@ -51,7 +51,11 @@ function canBuyUpgrade(upgrade) {
 	}
 }
 function getLAmount() {
-        return player.ls.amount.root(15).minus(3).floor();
+	if(player.ls.amount.root(15).gte(4)) {
+        	return player.ls.amount.root(15).minus(3).floor();
+	} else {
+		return new Decimal(0);
+	}
 }
 function buyTreeItem(item) {
 	if (canBuyTreeItem(item)) {
