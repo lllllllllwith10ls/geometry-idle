@@ -312,10 +312,23 @@ function update() {
 	document.getElementById("LSOnPrestige").innerHTML = formatValue(player.notation, getLSAmount(), 3, 0);
 	if(player.ls.prestiged > 0) {
 		document.getElementById("lineSegments").style.display = "";
-		document.getElementById("lineTab").style.display="";
+		document.getElementById("lineSegTab").style.display="";
 	} else {
 		document.getElementById("lineSegments").style.display = "none";
-		document.getElementById("lineTab").style.display="none";
+		document.getElementById("lineSegTab").style.display="none";
+	}
+	if(getLAmount().gte(1)) {
+		document.getElementById("lButton").style.display = "";
+	} else {
+		document.getElementById("lButton").style.display = "none";
+	}
+	document.getElementById("LOnPrestige").innerHTML = formatValue(player.notation, getLAmount(), 3, 0);
+	if(player.lines.prestiged > 0) {
+		document.getElementById("lines").style.display = "";
+		document.getElementById("lineTab").style.display = "";
+	} else {
+		document.getElementById("lines").style.display = "none";
+		document.getElementById("lineTab").style.display = "none";
 	}
 	if(player.ls.upgrades[18] > 0) {
 		document.getElementById("dotTab").style.display="";
