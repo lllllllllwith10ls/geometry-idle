@@ -62,6 +62,7 @@ function buyTreeItem(item) {
 		let index = player.lines.potentialUpgrades.indexOf(item);
 		player.lines.amount = player.lines.amount.minus(player.lines.costs[index]);
 		player.lines.upgrades[index]++;
+		document.getElementById(item).className += " purchased";
 		if (index > 3 && index < 11) {
 			let num = index - 1;
 			player["dotTier"+num].unlocked = true;
