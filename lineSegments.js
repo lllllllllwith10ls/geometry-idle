@@ -89,7 +89,7 @@ function canBuyTreeItem(item) {
 function lineSegmentReset() {
 	let override = false;
 	if (getLAmount() < 1) {		
-		if(confirm("Doing a Linear Extension now will not gain you any Lines!<br/>Continue anyways?")){
+		if(confirm("Doing a Linear Extension now will not gain you any Lines! Continue anyways?")){
 			override = true;
 		}
 	}
