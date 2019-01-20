@@ -217,7 +217,11 @@ function pointReset() {
 }
 function getLSAmount() {
 	if(player.lines.upgrades[0] > 0){
-		return player.points.root(11.5).divide(4).times(3).floor();
+		if(player.points.root(11.5).divide(4).gte(1)) {
+			return player.points.root(11.5).divide(4).times(3).floor();
+		} else {
+			return new Decimal(0);
+		}
 	} else {		
 		return player.points.root(11.5).divide(4).floor();
 	}
