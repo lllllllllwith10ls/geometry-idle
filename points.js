@@ -12,7 +12,7 @@ function getGenMult(tier) {
 	if (player.lines.upgrades[1] > 0) {
 		let m = 1;
 		for (let i = 1; i < 11; i++) {
-			m += 0.001*player["tier"+i].amount;
+			m += 0.001*player["tier"+i].bought;
 		}
 		document.getElementById("21Bonus").innerHTML = m;
 		m = new Decimal(m);
