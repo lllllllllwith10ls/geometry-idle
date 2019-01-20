@@ -173,7 +173,7 @@ function getDefaultSave() { //Create a new
 			amount: new Decimal(0),
 			potentialUpgrades: ["11", "21", "31", "41", "51", "61", "71", "81", "91", "101", "111"],
 			upgrades: 	   [   0,    0,    0,    0,    0,    0,    0,    0,    0,     0,     0],
-			costs: 		   [   5,   12,   50,  250,  200,  400,  800, 1600, 3200,  6400, 12800],
+			costs: 		   [   1,   12,   50,  250,  200,  400,  800, 1600, 3200,  6400, 12800],
 			prestiged: 0
 		},
 		currentTab: "generators",
@@ -216,7 +216,11 @@ function pointReset() {
 	}
 }
 function getLSAmount() {
-	return player.points.root(11.5).divide(4).floor();
+	if(player.lines.upgrades[0] > 0){
+		return player.points.root(11.5).divide(4).times(3).floor();
+	} else {		
+		return player.points.root(11.5).divide(4).floor();
+	}
 }
 
 function showTiers() {
