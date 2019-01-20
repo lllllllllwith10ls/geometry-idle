@@ -14,7 +14,7 @@ function getGenMult(tier) {
 		for (let i = 1; i < 11; i++) {
 			m += 0.001*player["tier"+i].bought;
 		}
-		document.getElementById("21Bonus").innerHTML = formatValue(player.notation, new Decimal(m), 3, 4);
+		document.getElementById("21Bonus").innerHTML = formatValue(player.notation, new Decimal(m), 3, 3);
 		m = new Decimal(m);
 		multi = multi.times(m);
 	}
