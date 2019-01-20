@@ -9,6 +9,15 @@ function getGenMult(tier) {
 		document.getElementById("dotBonus").innerHTML = formatValue("Standard", dotBonus, 3, 2);
 		multi = multi.times(dotBonus);
 	}
+	if (player.lines.upgrades[1] > 0) {
+		let m = 1;
+		for (let i = 1; i < 11; i++) {
+			m += 0.001*player["tier"+i].amount;
+		}
+		document.getElementById("21Bonus").innerHTML = m;
+		m = new Decimal(m);
+		multi = multi.times(m);
+	}
 	player["tier"+tier].multiplier = multi;
 	return multi;
 }
