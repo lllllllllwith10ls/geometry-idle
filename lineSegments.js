@@ -88,25 +88,11 @@ function canBuyTreeItem(item) {
 function lineSegmentReset() {
 	if (getLAmount() > 0) {
 		player.lines.amount = player.lines.amount.add(getLAmount());
-		let temp = player.ls.prestiged;
-		pointReset();
-		for(let i = 4; i <= 10; i++) {
-			player["tier"+i].unlocked = "false";
-		}
-		document.getElementById("lineTab").style.display = "";
-		let costs = [null,10,100,1000,1e5,1e8,1e12,1e20,1e30,1e43,1e60];
-		let costMults = [null,1.12,1.14,1.16,1.18,1.2,1.22,1.24,1.26,1.28,1.3];
-		for(let i = 1; i <= 10; i++) {
-			player["dotTier"+i].cost = new Decimal(costs[i]);
-			player["dotTier"+i].costMult = new Decimal(costMults[i]);
-			player["dotTier"+i].amount = new Decimal(0);
-			player["dotTier"+i].multiplier = new Decimal(1);
-			player["dotTier"+i].bought = 0;
-		}
-		player.dots = new Decimal (0);
-		player.ls = getDefaultSave().ls;
-		player.ls.prestiged = temp;
-		player.lines.prestiged++;
+		let temp = player.lines;
+		let notation = player.notation;
+		player = getDefaultSave();
+		player.lines = temp;
+		player.notation = notation;
 	}
 }
 		
