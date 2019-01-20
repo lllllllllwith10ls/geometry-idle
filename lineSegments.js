@@ -83,7 +83,9 @@ function canBuyTreeItem(item) {
 		if(new Decimal(player.lines.costs[index]).lte(player.lines.amount)) {
 			return true;
 		}
-		return false;
+		else {
+			return false;
+		}
 	}
 }
 function lineSegmentReset() {
