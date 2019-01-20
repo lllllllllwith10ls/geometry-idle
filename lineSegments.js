@@ -79,7 +79,7 @@ function canBuyTreeItem(item) {
 		if(player.lines.upgrades[index]==1) {
 			return false;
 		}
-		if(new Decimal(player.lines.costs[index].lte(player.lines.amount))) {
+		if(new Decimal(player.lines.costs[index]).lte(player.lines.amount)) {
 			return true;
 		}
 		return false;
