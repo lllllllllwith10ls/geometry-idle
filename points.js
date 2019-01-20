@@ -6,7 +6,7 @@ function getGenMult(tier) {
 	}
 	if (player.dots.gte(1)) {
 		let dotBonus = Decimal.max(player.dots.log10(), 1);
-		document.getElementById("dotBonus").innerHTML = formatValue("Standard", dotBonus, 3, 2);
+		document.getElementById("dotBonus").innerHTML = formatValue(player.notation, dotBonus, 3, 2);
 		multi = multi.times(dotBonus);
 	}
 	if (player.lines.upgrades[1] > 0) {
@@ -14,7 +14,7 @@ function getGenMult(tier) {
 		for (let i = 1; i < 11; i++) {
 			m += 0.001*player["tier"+i].bought;
 		}
-		document.getElementById("21Bonus").innerHTML = m;
+		document.getElementById("21Bonus").innerHTML = formatValue(player.notation, new Decimal(m), 3, 4);
 		m = new Decimal(m);
 		multi = multi.times(m);
 	}
