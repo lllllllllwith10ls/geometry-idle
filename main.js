@@ -312,6 +312,11 @@ function update() {
 			document.getElementById("dotRow"+j).style.display = "none";
 		}
 	}
+	for (let i = 0; i < 11; i++) {
+		if(player.lines.upgrades[i] > 0) {
+			document.getElementById(player.lines.potentialUpgrades[i]).className += " purchased";
+		}
+	}
 	if(getLSAmount().gte(1)) {
 		document.getElementById("lsButton").style.display = "";
 	} else {
