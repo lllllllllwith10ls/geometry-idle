@@ -87,7 +87,13 @@ function canBuyTreeItem(item) {
 	}
 }
 function lineSegmentReset() {
-	if (getLAmount() > 0) {
+	let override = false;
+	if (getLAmount() < 1) {		
+		if(confirm("Doing a Linear Extension now will not gain you any Lines!<br/>Continue anyways?")){
+			override = true;
+		}
+	}
+	if ((getLAmount() > 0)||override) {
 		player.lines.amount = player.lines.amount.add(getLAmount());
 		let temp = player.lines;
 		let notation = player.notation;
