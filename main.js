@@ -465,7 +465,7 @@ function gameLoop() {
 }
 function startInterval() {
 	load();
-	savefixer();
+	saveFixer();
 	showTab(player.currentTab);
   	setInterval(gameLoop, 33);
 	setInterval(save, 6000);
