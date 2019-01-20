@@ -318,7 +318,7 @@ function update() {
 			document.getElementById(player.lines.potentialUpgrades[i]).className = "buttonlocked";
 		}
 		if(player.lines.upgrades[i] > 0) {
-			document.getElementById(player.lines.potentialUpgrades[i]).className += " purchased";
+			document.getElementById(player.lines.potentialUpgrades[i]).className = "button purchased";
 		}
 	}
 	if(getLSAmount().gte(1)) {
