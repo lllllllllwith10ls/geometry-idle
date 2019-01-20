@@ -95,6 +95,7 @@ function lineSegmentReset() {
 	}
 	if ((getLAmount() > 0)||override) {
 		player.lines.amount = player.lines.amount.add(getLAmount());
+		player.lines.prestiged++;
 		let temp = player.lines;
 		let notation = player.notation;
 		player = getDefaultSave();
