@@ -313,6 +313,10 @@ function update() {
 		}
 	}
 	for (let i = 0; i < 11; i++) {
+		j = i-1;
+		if((i!=0)&&(player.lines.amount.gte(new Decimal(player.lines.costs[i]))&&(player.lines.upgrades[j] > 0))) {
+			document.getElementById(player.lines.potentialUpgrades[i]).className = "buttonlocked";
+		}
 		if(player.lines.upgrades[i] > 0) {
 			document.getElementById(player.lines.potentialUpgrades[i]).className += " purchased";
 		}
@@ -445,9 +449,13 @@ function importSave() {
 }
 function clearSave() {
 	if (confirm("This is not reversible. Delete your save file?")) {
+		localStorage.removeItem("geometryIdleSave");
 		player = getDefaultSave();
 		update();
 	}
+}
+function saveFixer() { //Anytime we change something that's already implemented. I'll make this nicer in the future
+	player.lines.costs = getDefaultSave().lines.costs;
 }
 function gameLoop() {
 	let newTime = new Date().getTime()
@@ -457,6 +465,7 @@ function gameLoop() {
 }
 function startInterval() {
 	load();
+	savefixer();
 	showTab(player.currentTab);
   	setInterval(gameLoop, 33);
 	setInterval(save, 6000);
