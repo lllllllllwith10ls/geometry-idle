@@ -312,7 +312,7 @@ function update() {
 			document.getElementById("dotRow"+j).style.display = "none";
 		}
 	}
-	for (let i = 0; i < 11; i++) {
+	for (let i = 0; i < 2; i++) {
 		j = i-1;
 		if((i!=0)&&(player.lines.amount.gte(new Decimal(player.lines.costs[i]))&&(player.lines.upgrades[j] > 0))) {
 			document.getElementById(player.lines.potentialUpgrades[i]).className = "buttonlocked";
