@@ -20,7 +20,7 @@ function getGenMult(tier) {
 	}
 	if (player.lines.upgrades[2] > 0) {
 		let x = Math.floor(player["tier"+tier].bought/25);
-		let m = new Decimal(1.1).pow(x);
+		let m = new Decimal(1.03).pow(x);
 		m = new Decimal(m);
 		multi = multi.times(m);
 	}
