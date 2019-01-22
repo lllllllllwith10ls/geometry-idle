@@ -19,7 +19,7 @@ function getGenMult(tier) {
 		multi = multi.times(m);
 	}
 	if (player.lines.upgrades[2] > 0) {
-		let m = new Decimal(1.1).pow((player["tier"+tier].bought).divide(25));
+		let m = new Decimal(1.1).pow(new Decimal(player["tier"+tier].bought).divide(25));
 		m = new Decimal(m);
 		document.getElementById("31Bonus").innerHTML = formatValue(player.notation, m, 3, 3);
 		multi = multi.times(m);
