@@ -15,7 +15,6 @@ function getGenMult(tier) {
 			m += 0.001*player["tier"+i].bought;
 		}
 		m = new Decimal(m);
-		document.getElementById("21Bonus").innerHTML = formatValue(player.notation, m, 3, 3);
 		multi = multi.times(m);
 	}
 	if (player.lines.upgrades[2] > 0) {
