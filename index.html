@@ -31,17 +31,17 @@
 			<div>Choose your Notation</div>
 			<div id='notationstuff'>
 				<button id="stand" onclick="player.notation = 'Standard'" class="button">Standard</button>
-				<button id="sci" onclick="player.notation = 'Scientific'" class="buttonlocked">Scientific</button>
-				<button id="mixsci" class="buttonlocked">Mixed Scientific</button>
+				<button id="sci" onclick="player.notation = 'Scientific'" class="button">Scientific</button>
+				<button id="mixsci" style="display:none" class="buttonlocked">Mixed Scientific</button>
 				<button id="engin" onclick="player.notation = 'Engineering'" class="button">Engineering</button>
-				<button id="mixengin" class="buttonlocked">Mixed Engineering</button>
+				<button id="mixengin" style="display:none" class="buttonlocked">Mixed Engineering</button>
 				<button id="hypersci" onclick="player.notation = 'Hyperscientific'" class="button">Hyperscientific</button>
 				<button id="aas" class="buttonlocked">AAS</button>
 			</div>
 			<div>
-				<button id="tet" class="buttonlocked">Tetration</button>
+				<button id="tet" style="display:none" class="buttonlocked">Tetration</button>
 				<button id="log" class="buttonlocked">Logarithm</button>
-				<button id="psi" class="buttonlocked">Psi</button>
+				<button id="psi" style="display:none" class="buttonlocked">Psi</button>
 				<button id="hex" onclick="player.notation = 'Hexadecimal'" class="button">Hexadecimal</button>
 				<button id="infinity" class="buttonlocked">Infinity</button>
 				<button id="af5ln" onclick="player.notation = 'AF5LN'" class="button">AF5LN</button>
@@ -51,7 +51,7 @@
 				<button id="country" onclick="player.notation = 'Country Codes'" class="button">Country Codes</button>
 				<button id="brackets" onclick="player.notation = 'Brackets'" class="button">Brackets</button>
 				<button id="greek" onclick="player.notation = 'Greek'" class="button">Greek</button>
-				<button id="iroha" class="buttonlocked">Iroha</button>
+				<button id="iroha" style="display:none" class="buttonlocked">Iroha</button>
 				<button id="emojis" onclick="player.notation = 'Emojis'" class="button">Emojis</button>
 			</div>
 		</div>
@@ -457,6 +457,12 @@
 				based on Generators bought<br/>
 				Current Bonus: x<span id="21Bonus">1</span><br/>
 				Cost: 12 Lines
+			</button>
+			<button id="31" align="center" class="buttonlocked" onclick="buyTreeItem('31')">
+				Buying 25 of a Generator<br/>
+				powers up that Generator by 1.1x<br/>
+				Current Bonus: x<span id="31Bonus">1</span><br/>
+				Cost: 50 Lines
 			</button>
 		</div>
 		<div id="prestige" style="text-align:center">
