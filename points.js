@@ -19,7 +19,8 @@ function getGenMult(tier) {
 		multi = multi.times(m);
 	}
 	if (player.lines.upgrades[2] > 0) {
-		let m = new Decimal(1.1).pow(new Decimal(player["tier"+tier].bought).divide(25));
+		let x = Math.floor(player["tier"+tier].bought/25);
+		let m = new Decimal(1.1).pow(x);
 		m = new Decimal(m);
 		multi = multi.times(m);
 	}
