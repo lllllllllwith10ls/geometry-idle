@@ -15,12 +15,12 @@ function getGenMult(tier) {
 			m += 0.001*player["tier"+i].bought;
 		}
 		m = new Decimal(m);
+		document.getElementById("21Bonus").innerHTML = formatValue(player.notation, m, 3, 3);
 		multi = multi.times(m);
 	}
 	if (player.lines.upgrades[2] > 0) {
 		let m = new Decimal(1.1).pow(new Decimal(player["tier"+tier].bought).divide(25));
 		m = new Decimal(m);
-		document.getElementById("31Bonus").innerHTML = formatValue(player.notation, m, 3, 3);
 		multi = multi.times(m);
 	}
 	player["tier"+tier].multiplier = multi;
