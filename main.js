@@ -457,6 +457,10 @@ function clearSave() {
 function saveFixer() { //Anytime we change something that's already implemented. I'll make this nicer in the future
 	player.lines.costs = getDefaultSave().lines.costs;
 }
+function displaySave() {
+	document.getElementById("savePlace").innerHTML = JSON.stringify(saveToString(player));
+	document.getElementById("displayedSave").style.display = "";
+}
 function gameLoop() {
 	let newTime = new Date().getTime()
 	let diff = (newTime - player.lastTick) / 1000;
