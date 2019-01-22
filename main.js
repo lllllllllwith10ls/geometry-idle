@@ -8,6 +8,7 @@ function getDefaultSave() { //Create a new
 			multiplier: new Decimal(1),
 			bought: 0,
 			costMult: 1.15,
+			costRaise: 1.01,
 			unlocked: true
 		},
 		tier2: {
@@ -16,6 +17,7 @@ function getDefaultSave() { //Create a new
 			multiplier: new Decimal(1),
 			bought: 0,
 			costMult: 1.18,
+			costRaise: 1.012,
 			unlocked: true
 		},
 		tier3: {
@@ -24,6 +26,7 @@ function getDefaultSave() { //Create a new
 			multiplier: new Decimal(1),
 			bought: 0,
 			costMult: 1.21,
+			costRaise: 1.014,
 			unlocked: true
 		},
 		ls: {
@@ -39,6 +42,7 @@ function getDefaultSave() { //Create a new
 			multiplier: new Decimal(1),
 			bought: 0,
 			costMult: 1.24,
+			costRaise: 1.016,
 			unlocked: false
 		},
 		tier5: {
@@ -47,6 +51,7 @@ function getDefaultSave() { //Create a new
 			multiplier: new Decimal(1),
 			bought: 0,
 			costMult: 1.27,
+			costRaise: 1.018,
 			unlocked: false
 		},
 		tier6: {
@@ -55,6 +60,7 @@ function getDefaultSave() { //Create a new
 			multiplier: new Decimal(1),
 			bought: 0,
 			costMult: 1.3,
+			costRaise: 1.02,
 			unlocked: false
 		},
 		tier7: {
@@ -63,6 +69,7 @@ function getDefaultSave() { //Create a new
 			multiplier: new Decimal(1),
 			bought: 0,
 			costMult: 1.33,
+			costRaise: 1.022,
 			unlocked: false
 		},
 		tier8: {
@@ -71,6 +78,7 @@ function getDefaultSave() { //Create a new
 			multiplier: new Decimal(1),
 			bought: 0,
 			costMult: 1.36,
+			costRaise: 1.024,
 			unlocked: false
 		},
 		tier9: {
@@ -79,6 +87,7 @@ function getDefaultSave() { //Create a new
 			multiplier: new Decimal(1),
 			bought: 0,
 			costMult: 1.39,
+			costRaise: 1.026,
 			unlocked: false
 		},
 		tier10: {
@@ -87,6 +96,7 @@ function getDefaultSave() { //Create a new
 			multiplier: new Decimal(1),
 			bought: 0,
 			costMult: 1.42,
+			costRaise: 1.028,
 			unlocked: false
 		},
 		dotTier1: {
