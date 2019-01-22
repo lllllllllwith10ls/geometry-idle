@@ -18,12 +18,12 @@ function getGenMult(tier) {
 		document.getElementById("21Bonus").innerHTML = formatValue(player.notation, m, 3, 3);
 		multi = multi.times(m);
 	}
-	if (player.lines.upgrades[2] > 0) {
-		let x = Math.floor(player["tier"+tier].bought/25);
-		let m = new Decimal(1.025).pow(x);
-		m = new Decimal(m);
-		multi = multi.times(m);
-	}
+	//if (player.lines.upgrades[2] > 0) {
+	//	let x = Math.floor(player["tier"+tier].bought/25);
+	//	let m = new Decimal(1.025).pow(x);
+	//	m = new Decimal(m);
+	//	multi = multi.times(m);
+	//}
 	player["tier"+tier].multiplier = multi;
 	return multi;
 }
