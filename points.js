@@ -69,7 +69,7 @@ function buyGen(tier) {
 		player.points = player.points.minus(player["tier"+tier].cost);
 		player["tier"+tier].cost = player["tier"+tier].cost.times(player["tier"+tier].costMult);
 		if(player["tier"+tier].bought > 100) {
-			player["tier"+tier].costMult = new Decimal(player["tier"+tier].costMult).plus(Math.log10(player["tier"+tier].bought/10)*0.005);
+			player["tier"+tier].costMult = new Decimal(player["tier"+tier].costMult).plus(Math.log10(player["tier"+tier].bought/10)*0.002);
 		}			
 	}
 }
