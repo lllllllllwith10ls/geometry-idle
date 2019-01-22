@@ -191,15 +191,15 @@ function formatValue(notation, value, places, placesUnder1000) {
             var power = Math.floor(Math.log10(value));
         }
         if ((notation === "Mixed scientific" && power >= 33) || notation === "Scientific") {
-            if (player.options.scientific !== undefined && player.options.scientific.significantDigits !== undefined) places=player.options.scientific.significantDigits-1
-            matissa = matissa.toFixed(places)
+            //if (player.options.scientific !== undefined && player.options.scientific.significantDigits !== undefined) places=player.options.scientific.significantDigits-1
+            matissa = matissa.toFixed(3)
             if (matissa >= 10) {
-                matissa = (1).toFixed(places);
+                matissa = (1).toFixed(3);
                 power++;
             }
             if (power > 100000) {
-                if (player.options.commas != "Commas") return matissa + "e" + formatValue(player.options.commas, power, 3, 3)
-                if (power >= 1e12 && player.options.commas == "Commas") return matissa + "e" + formatValue("Standard", power, 3, 3)
+                //if (player.options.commas != "Commas") return matissa + "e" + formatValue(player.options.commas, power, 3, 3)
+                //if (power >= 1e12 && player.options.commas == "Commas") return matissa + "e" + formatValue("Standard", power, 3, 3)
                 return matissa + "e" + getFullExpansion(power);
             }
             return matissa + "e" + power;
