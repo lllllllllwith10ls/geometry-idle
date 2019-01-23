@@ -7,7 +7,7 @@ function getDefaultSave() { //Create a new
 			amount: new Decimal(0),
 			multiplier: new Decimal(1),
 			bought: 0,
-			costMult: 1.15,
+			costMult: new Decimal(1.15),
 			costRaise: 1.01,
 			unlocked: true
 		},
@@ -16,7 +16,7 @@ function getDefaultSave() { //Create a new
 			amount: new Decimal(0),
 			multiplier: new Decimal(1),
 			bought: 0,
-			costMult: 1.18,
+			costMult: new Decimal(1.18),
 			costRaise: 1.012,
 			unlocked: true
 		},
@@ -25,7 +25,7 @@ function getDefaultSave() { //Create a new
 			amount: new Decimal(0),
 			multiplier: new Decimal(1),
 			bought: 0,
-			costMult: 1.21,
+			costMult: new Decimal(1.21),
 			costRaise: 1.014,
 			unlocked: true
 		},
@@ -41,7 +41,7 @@ function getDefaultSave() { //Create a new
 			amount: new Decimal(0),
 			multiplier: new Decimal(1),
 			bought: 0,
-			costMult: 1.24,
+			costMult: new Decimal(1.24),
 			costRaise: 1.016,
 			unlocked: false
 		},
@@ -50,7 +50,7 @@ function getDefaultSave() { //Create a new
 			amount: new Decimal(0),
 			multiplier: new Decimal(1),
 			bought: 0,
-			costMult: 1.27,
+			costMult: new Decimal(1.27),
 			costRaise: 1.018,
 			unlocked: false
 		},
@@ -59,7 +59,7 @@ function getDefaultSave() { //Create a new
 			amount: new Decimal(0),
 			multiplier: new Decimal(1),
 			bought: 0,
-			costMult: 1.3,
+			costMult: new Decimal(1.3),
 			costRaise: 1.02,
 			unlocked: false
 		},
@@ -68,7 +68,7 @@ function getDefaultSave() { //Create a new
 			amount: new Decimal(0),
 			multiplier: new Decimal(1),
 			bought: 0,
-			costMult: 1.33,
+			costMult: new Decimal(1.33),
 			costRaise: 1.022,
 			unlocked: false
 		},
@@ -77,7 +77,7 @@ function getDefaultSave() { //Create a new
 			amount: new Decimal(0),
 			multiplier: new Decimal(1),
 			bought: 0,
-			costMult: 1.36,
+			costMult: new Decimal(1.36),
 			costRaise: 1.024,
 			unlocked: false
 		},
@@ -86,7 +86,7 @@ function getDefaultSave() { //Create a new
 			amount: new Decimal(0),
 			multiplier: new Decimal(1),
 			bought: 0,
-			costMult: 1.39,
+			costMult: new Decimal(1.39),
 			costRaise: 1.026,
 			unlocked: false
 		},
@@ -95,7 +95,7 @@ function getDefaultSave() { //Create a new
 			amount: new Decimal(0),
 			multiplier: new Decimal(1),
 			bought: 0,
-			costMult: 1.42,
+			costMult: new Decimal(1.42),
 			costRaise: 1.028,
 			unlocked: false
 		},
@@ -104,7 +104,7 @@ function getDefaultSave() { //Create a new
 			amount: new Decimal(0),
 			multiplier: new Decimal(1),
 			bought: 0,
-			costMult: 1.12,
+			costMult: new Decimal(1.12),
 			unlocked: true
 		},
 		dotTier2: {
@@ -112,7 +112,7 @@ function getDefaultSave() { //Create a new
 			amount: new Decimal(0),
 			multiplier: new Decimal(1),
 			bought: 0,
-			costMult: 1.14,
+			costMult: new Decimal(1.14),
 			unlocked: true
 		},
 		dotTier3: {
@@ -120,7 +120,7 @@ function getDefaultSave() { //Create a new
 			amount: new Decimal(0),
 			multiplier: new Decimal(1),
 			bought: 0,
-			costMult: 1.16,
+			costMult: new Decimal(1.16),
 			unlocked: true
 		},
 		dotTier4: {
@@ -128,7 +128,7 @@ function getDefaultSave() { //Create a new
 			amount: new Decimal(0),
 			multiplier: new Decimal(1),
 			bought: 0,
-			costMult: 1.18,
+			costMult: new Decimal(1.18),
 			unlocked: false
 		},
 		dotTier5: {
@@ -136,7 +136,7 @@ function getDefaultSave() { //Create a new
 			amount: new Decimal(0),
 			multiplier: new Decimal(1),
 			bought: 0,
-			costMult: 1.20,
+			costMult: new Decimal(1.20),
 			unlocked: false
 		},
 		dotTier6: {
@@ -144,7 +144,7 @@ function getDefaultSave() { //Create a new
 			amount: new Decimal(0),
 			multiplier: new Decimal(1),
 			bought: 0,
-			costMult: 1.22,
+			costMult: new Decimal(1.22),
 			unlocked: false
 		},
 		dotTier7: {
@@ -152,7 +152,7 @@ function getDefaultSave() { //Create a new
 			amount: new Decimal(0),
 			multiplier: new Decimal(1),
 			bought: 0,
-			costMult: 1.24,
+			costMult: new Decimal(1.24),
 			unlocked: false
 		},
 		dotTier8: {
@@ -160,7 +160,7 @@ function getDefaultSave() { //Create a new
 			amount: new Decimal(0),
 			multiplier: new Decimal(1),
 			bought: 0,
-			costMult: 1.26,
+			costMult: new Decimal(1.26),
 			unlocked: false
 		},
 		dotTier9: {
@@ -168,7 +168,7 @@ function getDefaultSave() { //Create a new
 			amount: new Decimal(0),
 			multiplier: new Decimal(1),
 			bought: 0,
-			costMult: 1.28,
+			costMult: new Decimal(1.28),
 			unlocked: false
 		},
 		dotTier10: {
@@ -176,7 +176,7 @@ function getDefaultSave() { //Create a new
 			amount: new Decimal(0),
 			multiplier: new Decimal(1),
 			bought: 0,
-			costMult: 1.30,
+			costMult: new Decimal(1.30),
 			unlocked: false
 		},
 		lines: {
