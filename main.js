@@ -468,11 +468,17 @@ function saveFixer() { //Anytime we change something that's already implemented.
 	player.lines.costs = getDefaultSave().lines.costs;
 	for(let i = 1; i < 11; i++) {
 		let num = player["tier"+i].bought;
-		let mult = new Decimal(1.012).plus(0.003*i);
 		if (num > 100) {
+			let mult = new Decimal(1.012).plus(0.003*i);
+			let price = getDefaultSave();
+			price = price["tier"+i].cost;
+			price = price.times(mult.pow(100));
 			for(let j = 100; j < num; j++) {
 				mult = mult.plus(new Decimal(Decimal.log10(num/10)).times(0.0015))
+				price = price.times(mult);
 			}
+			player["tier"+i].cost = price;
+			player["tier"+i].costMult = mult;
 		}
 	}
 }
