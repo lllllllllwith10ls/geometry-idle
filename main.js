@@ -466,6 +466,15 @@ function clearSave() {
 }
 function saveFixer() { //Anytime we change something that's already implemented. I'll make this nicer in the future
 	player.lines.costs = getDefaultSave().lines.costs;
+	for(let i = 1; i < 11; i++) {
+		let num = player["tier"+i].bought;
+		let mult = new Decimal(1.012).plus(0.003*i);
+		if (num > 100) {
+			for(let j = 100; j < num; j++) {
+				mult = mult.plus(new Decimal(Decimal.log10(num/10)).times(0.0015))
+			}
+		}
+	}
 }
 function displaySave() {
 	document.getElementById("savePlace").innerHTML = JSON.stringify(saveToString(player));
