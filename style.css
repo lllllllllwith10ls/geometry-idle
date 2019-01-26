@@ -61,3 +61,15 @@
 	background: #FFFFFF;
 	font-size: 8px;
 }
+//Line Tree Button Placements
+.treeButton {top: 50%; left: 50%;}
+.transition {background: #D3D3D3; position: fixed; top: 50%; left: 50%;}
+.vert {width: 20px; height: 50px;}
+.horiz {width: 100px; height: 20px;}
+.oneOne {transform: translate(-50%, -300%);}
+.t12 {transform: translate(-50%, -400%);}
+.twoOne {transform: translate(-50%, -150%);}
+.t23 {transform: translate(-50%, -100%);}
+.threeOne {transform: translate(100%, 200%);}
+.t34 {transform: translate(-50%, 200%);}
+.fourOne {transform: translate(-50%, 150%);}
