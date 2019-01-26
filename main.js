@@ -328,7 +328,7 @@ function update() {
 			if(player.lines.amount.gte(new Decimal(player.lines.costs[i]))&&(player.lines.upgrades[j] > 0)) {
 				document.getElementById(player.lines.potentialUpgrades[i]).style.background = "#FFFFFF";
 			} else {
-				document.getElementById(player.lines.potentialUpgrades[i]).style.background = #A3A3A3;
+				document.getElementById(player.lines.potentialUpgrades[i]).style.background = "#A3A3A3";
 			}
 		}
 		if(player.lines.upgrades[i] > 0) {
