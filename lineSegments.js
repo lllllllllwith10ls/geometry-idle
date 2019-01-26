@@ -8,7 +8,7 @@ function buyUpgrade(upgrade) {
 				document.getElementById("DG").innerHTML = "Dot Generators<br/>unlocked!";
 			}
 		}
-		if (index > 7) {
+		if (index > 7 & index < 18) {
 			player.ls.upgrades[index]++;
 			let upg = index-7;
     			if(upgrade.substring(2)>3) {
