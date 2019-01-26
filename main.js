@@ -364,7 +364,8 @@ function update() {
 		document.getElementById("lineTab").style.display = "none";
 	}
 	if(player.ls.upgrades[18] > 0) {
-		document.getElementById("dotTab").style.display="none";
+		document.getElementById("dotTab").style.display="";
+		document.getElementById("DG").style.display = "none";
 		document.getElementById("DG").style.background = "#A3A3A3";
 		document.getElementById("DG").innerHTML = "Dot Generators Unlocked!";
 	} else {
