@@ -333,7 +333,7 @@ function update() {
 		}
 		if(player.lines.upgrades[i] > 0) {
 			document.getElementById(player.lines.potentialUpgrades[i]).style.background = "#5AC467";
-			document.getElementById(player.lines.potentialUpgrades[i]).style.color: "#FFFFFF";
+			document.getElementById(player.lines.potentialUpgrades[i]).style.color = "#FFFFFF";
 		}
 	}
 	if(getLSAmount().gte(1)) {
