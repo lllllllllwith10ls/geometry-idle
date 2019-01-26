@@ -323,7 +323,7 @@ function update() {
 			document.getElementById("dotRow"+j).style.display = "none";
 		}
 	}
-	for (let i = 0; i < 3; i++) {
+	for (let i = 0; i < 4; i++) {
 		j = i-1;
 		if (i!=0) {
 			if(player.lines.amount.gte(new Decimal(player.lines.costs[i]))&&(player.lines.upgrades[j] > 0)) {
