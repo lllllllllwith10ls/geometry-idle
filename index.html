@@ -21,6 +21,7 @@
 			</div>
 			<button id="closeSaveWindow" onclick="document.getElementById('displayedSave').style.display='none'" class="button">Close</button>
 		</div>
+		<div id="spacing1" style="height: 20px;"> </div>
 		<div id='options' class='tab' style='display:none; text-align:center'>
 			<div id='savingstuff'>
 				<button id="saveButton" onclick="save()" class="button">Save Game</button>
@@ -452,24 +453,29 @@
 			</table>
 		</div>
 		<div id="lineTab" class="tab" style="text-align:center">
-			<button id="11" align="center" class="upgrade" onclick="buyTreeItem('11')">
-				Multiply line segments<br/>
-				from all sources by 3<br/>
-				Cost: 1 Line
+			<button id="11" class="treeButton oneOne" onclick="buyTreeItem('11')">
+				<span id="texts">Multiply line segments from all sources by 3<br/>
+					Cost: 1 Line</span>
 			</button>
-			<button id="21" align="center" class="buttonlocked" onclick="buyTreeItem('21')">
-				All Generators are stronger<br/>
-				based on Generators bought<br/>
+			<div id="t12" class="transition vert t12"></div>
+			<button id="21" class="treeButton twoOne" onclick="buyTreeItem('21')">
+				<span id="texts">All Generators are stronger based on Generators bought<br/>
 				Current Bonus: x<span id="21Bonus">1</span><br/>
-				Cost: 12 Lines
+					Cost: 12 Lines</span>
 			</button>
-			<button id="31" align="center" class="buttonlocked" onclick="buyTreeItem('31')">
-				Buying 25 of a Generator<br/>
-				powers up that Generator by 1.1x<br/>
-				Cost: 50 Lines
+			<div id="t23" class="transition vert t23"></div>
+			<button id="31" class="treeButton threeOne" onclick="buyTreeItem('31')">
+				<span id="texts">Buying 25 of a Generator powers up that Generator by 1.1x<br/>
+					Cost: 50 Lines</span>
+			</button>
+			<div id="t34" class="transition vert t34"></div>
+			<button id="41" class="treeButton fourOne" onclick="buyTreeItem('41')">
+				<span id="texts">You get more Line Segments based on Generators bought<br/>
+					Current Bonus: x<span id="41Bonus">1</span><br/>
+					Cost: 250 Lines</span>
 			</button>
 		</div>
-		<div id="spacing"> </div>
+		<div id="spacing2" style="height: 20px;"> </div>
 		<div id="prestige" style="text-align:center">
 			<button id="lsButton" align="center" style="display: none;" class="button" onclick="pointReset()">
 				Raise your points to<br/>
