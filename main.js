@@ -330,6 +330,7 @@ function update() {
 			} else {
 				document.getElementById(player.lines.potentialUpgrades[i]).style.background = #A3A3A3;
 			}
+		}
 		if(player.lines.upgrades[i] > 0) {
 			document.getElementById(player.lines.potentialUpgrades[i]).style.background = "#5AC467";
 			document.getElementById(player.lines.potentialUpgrades[i]).style.color: "#FFFFFF";
