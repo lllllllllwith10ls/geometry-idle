@@ -325,7 +325,7 @@ function update() {
 	for (let i = 0; i < 3; i++) {
 		j = i-1;
 		if (i!=0) {
-			if(player.lines.amount.gte(new Decimal(player.lines.costs[i]))&&(player.lines.upgrades[j] > 0))) {
+			if(player.lines.amount.gte(new Decimal(player.lines.costs[i]))&&(player.lines.upgrades[j] > 0)) {
 				document.getElementById(player.lines.potentialUpgrades[i]).style.background = "#FFFFFF";
 			} else {
 				document.getElementById(player.lines.potentialUpgrades[i]).style.background = #A3A3A3;
