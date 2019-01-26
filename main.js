@@ -310,12 +310,13 @@ function update() {
 			let num = i + 3;
 			document.getElementById("T"+num).style.background = "#A3A3A3";
 			document.getElementById("T"+num).innerHTML = "Tier "+num+" generator<br/>unlocked!"
+			document.getElementById("T"+num).style.display = "none";
 			document.getElementById("DT"+num).style.display = "";
 		}
 	}
 	for (let i = 1; i < 10; i++) {
 		let j = i + 1;
-		if(player["dotTier"+i].amount.gte(9) && player["dotTier"+j].unlocked) {
+		if(player["dotTier"+i].amount.gte(10) && player["dotTier"+j].unlocked) {
 			document.getElementById("dotRow"+j).style.display = "";
 		}
 		else {
@@ -363,8 +364,8 @@ function update() {
 		document.getElementById("lineTab").style.display = "none";
 	}
 	if(player.ls.upgrades[18] > 0) {
-		document.getElementById("dotTab").style.display="";
-		document.getElementById("DG").style.color = "#A3A3A3";
+		document.getElementById("dotTab").style.display="none";
+		document.getElementById("DG").style.background = "#A3A3A3";
 		document.getElementById("DG").innerHTML = "Dot Generators Unlocked!";
 	} else {
 		document.getElementById("dotTab").style.display="none";
