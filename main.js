@@ -470,6 +470,7 @@ function clearSave() {
 	if (confirm("This is not reversible. Delete your save file?")) {
 		localStorage.removeItem("geometryIdleSave");
 		player = getDefaultSave();
+		save();
 		update();
 	}
 }
