@@ -52,7 +52,7 @@ function canBuyUpgrade(upgrade) {
 }
 function getLAmount() {
 	if(player.ls.amount.root(15).gte(4)) {
-        	return player.ls.amount.root(15).minus(3).floor();
+        	return player.ls.amount.root(15).minus(2).floor();
 	} else {
 		return new Decimal(0);
 	}
