@@ -299,36 +299,44 @@ function update() {
 	for (let i = 1; i < player.ls.potentialUpgrades.length; i++) {
 		let name = player.ls.potentialUpgrades[i];
 		if (player.ls.amount.gte(player.ls.costs[i])) {
-			document.getElementById(name).className = "button";
+			document.getElementById(name).style.background = "#FFFFFF";
 		}
 		else {
-			document.getElementById(name).className = "buttonlocked";
+			document.getElementById(name).style.background = "#A3A3A3";
 		}
 	}
 	for (let i = 1; i < 8; i++) {
+		let num = i + 3;
 		if (player.ls.upgrades[i] > 0) {
-			let num = i + 3;
-			document.getElementById("T"+num).className = "buttonlocked";
-			document.getElementById("T"+num).innerHTML = "Tier "+num+" generator<br/>unlocked!"
+			document.getElementById("T"+num).style.display = "none";
 			document.getElementById("DT"+num).style.display = "";
+		}
+		else { 
+			document.getElementById("T"+num).style.display = "";
+			document.getElementById("DT"+num).style.display = "none";
 		}
 	}
 	for (let i = 1; i < 10; i++) {
 		let j = i + 1;
-		if(player["dotTier"+i].amount.gte(9) && player["dotTier"+j].unlocked) {
+		if(player["dotTier"+i].amount.gte(10) && player["dotTier"+j].unlocked) {
 			document.getElementById("dotRow"+j).style.display = "";
 		}
 		else {
 			document.getElementById("dotRow"+j).style.display = "none";
 		}
 	}
-	for (let i = 0; i < 3; i++) {
+	for (let i = 0; i < 4; i++) {
 		j = i-1;
-		if((i!=0)&&(player.lines.amount.gte(new Decimal(player.lines.costs[i]))&&(player.lines.upgrades[j] > 0))) {
-			document.getElementById(player.lines.potentialUpgrades[i]).className = "buttonlocked";
+		if (i!=0) {
+			if(player.lines.amount.gte(new Decimal(player.lines.costs[i]))&&(player.lines.upgrades[j] > 0)) {
+				document.getElementById(player.lines.potentialUpgrades[i]).style.background = "#FFFFFF";
+			} else {
+				document.getElementById(player.lines.potentialUpgrades[i]).style.background = "#A3A3A3";
+			}
 		}
 		if(player.lines.upgrades[i] > 0) {
-			document.getElementById(player.lines.potentialUpgrades[i]).className = "button purchased";
+			document.getElementById(player.lines.potentialUpgrades[i]).style.background = "#5AC467";
+			document.getElementById(player.lines.potentialUpgrades[i]).style.color = "#FFFFFF";
 		}
 	}
 	if(getLSAmount().gte(1)) {
@@ -359,7 +367,8 @@ function update() {
 	}
 	if(player.ls.upgrades[18] > 0) {
 		document.getElementById("dotTab").style.display="";
-		document.getElementById("DG").className = "buttonlocked";
+		document.getElementById("DG").style.display = "none";
+		document.getElementById("DG").style.background = "#A3A3A3";
 		document.getElementById("DG").innerHTML = "Dot Generators Unlocked!";
 	} else {
 		document.getElementById("dotTab").style.display="none";
@@ -461,6 +470,7 @@ function clearSave() {
 	if (confirm("This is not reversible. Delete your save file?")) {
 		localStorage.removeItem("geometryIdleSave");
 		player = getDefaultSave();
+		save();
 		update();
 	}
 }
