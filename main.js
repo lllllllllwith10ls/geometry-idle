@@ -306,12 +306,14 @@ function update() {
 		}
 	}
 	for (let i = 1; i < 8; i++) {
+		let num = i + 3;
 		if (player.ls.upgrades[i] > 0) {
-			let num = i + 3;
-			document.getElementById("T"+num).style.background = "#A3A3A3";
-			document.getElementById("T"+num).innerHTML = "Tier "+num+" generator<br/>unlocked!"
 			document.getElementById("T"+num).style.display = "none";
 			document.getElementById("DT"+num).style.display = "";
+		}
+		else { 
+			document.getElementById("T"+num).style.display = "";
+			document.getElementById("DT"+num).style.display = "none";
 		}
 	}
 	for (let i = 1; i < 10; i++) {
