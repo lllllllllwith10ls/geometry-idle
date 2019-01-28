@@ -70,6 +70,7 @@
 .transition {
 	background-color: #D3D3D3;
 	text-align: center;
+	align-self: center;
 }
 
 .vert {
