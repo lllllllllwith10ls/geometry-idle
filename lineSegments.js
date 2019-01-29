@@ -62,7 +62,7 @@ function buyTreeItem(item) {
 		let index = player.lines.potentialUpgrades.indexOf(item);
 		player.lines.amount = player.lines.amount.minus(player.lines.costs[index]);
 		player.lines.upgrades[index]++;
-		if (index > 3 && index < 11) {
+		if (index > 4 && index < 12) {
 			let num = index - 1;
 			player["dotTier"+num].unlocked = true;
 		}
@@ -72,7 +72,10 @@ function buyTreeItem(item) {
 function canBuyTreeItem(item) {
 	if (player.lines.potentialUpgrades.includes(item)) {
 		let index = player.lines.potentialUpgrades.indexOf(item);
-		if((index!=0)&&(player.lines.upgrades[index-1]==0)) {
+		if((index > 2)&&(player.lines.upgrades[index-1] == 0)) {
+			return false;
+		}
+		if((index == 2)&&((player.lines.upgrades[0] == 0)&&(player.lines.upgrades[1] == 0))) {
 			return false;
 		}
 		if(player.lines.upgrades[index]==1) {
