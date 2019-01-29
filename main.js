@@ -492,7 +492,7 @@ function saveFixer() { //Anytime we change something that's already implemented.
 	if(player.lines.upgrades.length == 11) {
 		player.lines.upgrades.splice(1, 0, 0);
 	}
-	player.lines.costs = getDefaultSave().lines.Costs;
+	player.lines.costs = getDefaultSave().lines.costs;
 }
 function displaySave() {
 	document.getElementById("savePlace").innerHTML = JSON.stringify(saveToString(player));
