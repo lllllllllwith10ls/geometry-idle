@@ -67,6 +67,11 @@
 	flex-direction: column;
 }
 
+.inner-container {
+	display: flex;
+	justify-content: center;
+}
+
 .transition {
 	background-color: #D3D3D3;
 	text-align: center;
