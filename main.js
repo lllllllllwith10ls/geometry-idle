@@ -326,7 +326,7 @@ function update() {
 		}
 	}
 	for (let i = 0; i < 5; i++) {
-		if(canBuyTreeUpgrade(player.lines.potantialUpgrades[i])) {
+		if(canBuyTreeItem(player.lines.potantialUpgrades[i])) {
 			document.getElementById(player.lines.potentialUpgrades[i]).style.background = "#FFFFFF";
 		} else {
 			document.getElementById(player.lines.potentialUpgrades[i]).style.background = "#A3A3A3";
