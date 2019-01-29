@@ -491,6 +491,9 @@ function saveFixer() { //Anytime we change something that's already implemented.
 			player["tier"+i].costMult = mult;
 		}
 	}
+	player.lines.potentialUpgrades = getDefaultSave().lines.potentialUpgrades;
+	player.lines.upgrades.splice(1, 0, 0);
+	player.lines.costs = getDefaultSave().lines.potentialCosts;
 }
 function displaySave() {
 	document.getElementById("savePlace").innerHTML = JSON.stringify(saveToString(player));
