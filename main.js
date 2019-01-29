@@ -181,9 +181,9 @@ function getDefaultSave() { //Create a new
 		},
 		lines: {
 			amount: new Decimal(0),
-			potentialUpgrades: ["11", "21", "31", "41", "51", "61", "71", "81", "91", "101", "111"],
-			upgrades: 	   [   0,    0,    0,    0,    0,    0,    0,    0,    0,     0,     0],
-			costs: 		   [   1,   12,   50,  250,  200,  400,  800, 1600, 3200,  6400, 12800],
+			potentialUpgrades: ["11", "12", "21", "31", "41", "51", "61", "71", "81", "91", "101", "111"],
+			upgrades: 	   [   0,    0,    0,    0,    0,    0,    0,    0,    0,    0,     0,     0],
+			costs: 		   [   1,    1,   12,   50,  250,  200,  400,  800, 1600, 3200,  6400, 12800],
 			prestiged: 0
 		},
 		currentTab: "generators",
