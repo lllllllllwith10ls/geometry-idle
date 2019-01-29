@@ -454,10 +454,19 @@
 		</div>
 		<div id="lineTab" class="tab" style="text-align: center">
 			<div id="flex-container">
-				<button id="11" class="upgrade" onclick="buyTreeItem('11')">
-					<span id="texts">Multiply line segments from all sources by 3<br/>
-						Cost: 1 Line</span>
-				</button>
+				<div>
+					<button id="11" class="upgrade" onclick="buyTreeItem('11')">
+						<span id="texts">Multiply line segments from all sources by 3<br/>
+							Cost: 1 Line
+						</span>
+					</button>
+					<button id="12" class="upgrade" onclick="buyTreeItem('12')">
+						<span id="texts">Gain a bonus to all Generators based on Line Extensions<br/>
+							Current Bonus: x<span id="12Bonus">1</span><br/>
+							Cost: 1 Line
+						</span>
+					</button>
+				</div>
 				<div id="t12" class="transition vert">|<br/>V</div>
 				<button id="21" class="upgrade" onclick="buyTreeItem('21')">
 					<span id="texts">All Generators are stronger based on Generators bought<br/>
