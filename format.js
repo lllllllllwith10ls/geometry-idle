@@ -111,7 +111,7 @@ function getAASAbbreviation(x) {
 
 const inflog = Math.log10(Number.MAX_VALUE)
 function formatValue(notation, value, places, placesUnder1000) {
-    if (notation === "Same notation") notation = player.options.notation
+    if (notation === "Same notation") notation = player.notation
     if (notation === 'Iroha') return iroha(value, 5)
     if (Decimal.eq(value, 1/0)) return "Infinite"
     if (Decimal.gte(value,1000)) {
@@ -127,7 +127,7 @@ function formatValue(notation, value, places, placesUnder1000) {
             mantissa=digits[Math.floor(mantissa)].toString()+'.'+digits[Math.floor(mantissa*16)%16].toString()+digits[Math.floor(mantissa*256)%16].toString()
             if (power > 100000 && !(player.options.commas === "Commas")) return mantissa + "e" + formatValue(player.options.commas, power, 3, 3)
             else {
-                if (power >= Math.pow(16, 12)) return mantissa + "e" + formatValue(player.options.notation, power, 3, 3)
+                if (power >= Math.pow(16, 12)) return mantissa + "e" + formatValue(player.notation, power, 3, 3)
                 var digit=0
                 var result=''
                 var temp=power
@@ -583,28 +583,28 @@ function getFullExpansion(num) {
 }
 
 shorten = function (money) {
-  return formatValue(player.options.notation, money, 2, 2);
+  return formatValue(player.notation, money, 2, 2);
 };
 
 shortenCosts = function (money) {
-  return formatValue(player.options.notation, money, 0, 0);
+  return formatValue(player.notation, money, 0, 0);
 };
 
 shortenPreInfCosts = function (money) {
-    if (money.exponent<0) return Math.round(money.mantissa) + " / " + formatValue(player.options.notation, Decimal.pow(10, -money.exponent), 0, 0)
-	return formatValue(player.options.notation, money, (money.mantissa>1&&money.exponent>308)?2:0, 0);
+    if (money.exponent<0) return Math.round(money.mantissa) + " / " + formatValue(player.notation, Decimal.pow(10, -money.exponent), 0, 0)
+	return formatValue(player.notation, money, (money.mantissa>1&&money.exponent>308)?2:0, 0);
 };
 
 shortenInfDimCosts = function (money) {
-	return formatValue(player.options.notation, money, ECTimesCompleted("eterc12")?2:0, 0);
+	return formatValue(player.notation, money, ECTimesCompleted("eterc12")?2:0, 0);
 };
 
 shortenDimensions = function (money) {
-  return formatValue(player.options.notation, money, 2, 0);
+  return formatValue(player.notation, money, 2, 0);
 };
 
 shortenMoney = function (money) {
-  return formatValue(player.options.notation, money, 2, 1);
+  return formatValue(player.notation, money, 2, 1);
 };
 
 
