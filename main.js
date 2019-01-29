@@ -325,14 +325,11 @@ function update() {
 			document.getElementById("dotRow"+j).style.display = "none";
 		}
 	}
-	for (let i = 0; i < 4; i++) {
-		j = i-1;
-		if (i!=0) {
-			if(player.lines.amount.gte(new Decimal(player.lines.costs[i]))&&(player.lines.upgrades[j] > 0)) {
-				document.getElementById(player.lines.potentialUpgrades[i]).style.background = "#FFFFFF";
-			} else {
-				document.getElementById(player.lines.potentialUpgrades[i]).style.background = "#A3A3A3";
-			}
+	for (let i = 0; i < 5; i++) {
+		if(canBuyTreeUpgrade(player.lines.potantialUpgrades[i])) {
+			document.getElementById(player.lines.potentialUpgrades[i]).style.background = "#FFFFFF";
+		} else {
+			document.getElementById(player.lines.potentialUpgrades[i]).style.background = "#A3A3A3";
 		}
 		if(player.lines.upgrades[i] > 0) {
 			document.getElementById(player.lines.potentialUpgrades[i]).style.background = "#5AC467";
