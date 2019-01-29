@@ -88,6 +88,10 @@ function canBuyTreeItem(item) {
 			return false;
 		}
 	}
+	else {
+		console.log("I don't see the upgrade "+item+".");
+		return false;
+	}
 }
 function lineSegmentReset() {
 	let override = false;
