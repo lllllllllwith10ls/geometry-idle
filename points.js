@@ -10,6 +10,11 @@ function getGenMult(tier) {
 		multi = multi.times(dotBonus);
 	}
 	if (player.lines.upgrades[1] > 0) {
+		let m = 1 + Math.log10(player.lines.prestiged + 1);
+		document.getElementById("12Bonus").innerHTML = formatValue(player.notation, m, 3, 3);
+		multi = multi.times(m);
+	}
+	if (player.lines.upgrades[2] > 0) {
 		let m = 1;
 		for (let i = 1; i < 11; i++) {
 			m += 0.001*player["tier"+i].bought;
@@ -18,7 +23,7 @@ function getGenMult(tier) {
 		document.getElementById("21Bonus").innerHTML = formatValue(player.notation, m, 3, 3);
 		multi = multi.times(m);
 	}
-	if (player.lines.upgrades[2] > 0) {
+	if (player.lines.upgrades[3] > 0) {
 		let x = Math.floor(player["tier"+tier].bought/25);
 		let m = new Decimal(1.03).pow(x);
 		m = new Decimal(m);
