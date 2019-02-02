@@ -199,7 +199,7 @@ for (let i = 1; i < player.ls.costs.length; i++) {
 }
 
 function produce(offline) {
-	if(player.points == Number.POSITIVE_INFINITY) {
+	if(player.points == Number.NaN) {
 		player.points = getProductionAmount(1).times(offline);
 	}
 	else {
