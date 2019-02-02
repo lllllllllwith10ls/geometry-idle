@@ -199,7 +199,12 @@ for (let i = 1; i < player.ls.costs.length; i++) {
 }
 
 function produce(offline) {
-	player.points = player.points.plus(getProductionAmount(1).times(offline));
+	if(player.points == Number.POSITIVE_INFINITY) {
+		player.points = getProductionAmount(1).times(offline);
+	}
+	else {
+		player.points = player.points.plus(getProductionAmount(1).times(offline));
+	}
 	player.dots = player.dots.plus(getDotProductionAmount(1).times(offline));
 	for(let i = 1; i < 10; i++) {
 		player["tier"+i].amount = player["tier"+i].amount.plus(getProductionAmount(i+1).times(offline));
