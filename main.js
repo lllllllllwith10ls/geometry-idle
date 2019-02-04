@@ -240,7 +240,7 @@ function getLSAmount() {
 					x = x.plus(y.times(player["tier"+i].bought));
 				}
 			}
-			document.getElementById("41Bonus").innerHTML = formatValue(player.notation, x, 3, 4);
+			document.getElementById("41Bonus").innerHTML = formatValue(player.notation, x, 3, 3);
 			return player.points.root(11.5).divide(4).times(3).floor();
 		} else {
 			return new Decimal(0);
