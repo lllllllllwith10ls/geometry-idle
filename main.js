@@ -233,6 +233,14 @@ function pointReset() {
 function getLSAmount() {
 	if(player.lines.upgrades[0] > 0){
 		if(player.points.root(11.5).divide(4).gte(1)) {
+			let x = new Decimal(1);
+			if(player.lines.upgrades[4] > 0) {
+				for(let i = 1; i < 11; i++) {
+					let y = new Decimal(0.001);
+					x = x.plus(y.times(player["tier"+i].bought));
+				}
+			}
+			document.getElementById("41Bonus").innerHTML = x;
 			return player.points.root(11.5).divide(4).times(3).floor();
 		} else {
 			return new Decimal(0);
