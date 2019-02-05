@@ -241,7 +241,7 @@ function getLSAmount() {
 				}
 			}
 			document.getElementById("41Bonus").innerHTML = formatValue(player.notation, x, 3, 3);
-			return player.points.root(11.5).divide(4).times(3).floor();
+			return player.points.root(11.5).divide(4).times(3).times(x).floor();
 		} else {
 			return new Decimal(0);
 		}
