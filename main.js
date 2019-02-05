@@ -216,6 +216,7 @@ function produce(offline) {
 function pointReset() {
 	if(player.points.gte(Math.pow(2,23/2))) {
 		document.getElementById("lineSegTab").style.display="block";
+		player.ls.amount = player.ls.amount.add(getLSAmount());
 		let costs = [null,10,100,1000,1e5,1e8,1e12,1e20,1e30,1e43,1e60];
 		let costMults = [null,1.15,1.18,1.21,1.24,1.27,1.3,1.33,1.36,1.39,1.42];
 		for(let i = 1; i <= 10; i++) {
@@ -225,7 +226,6 @@ function pointReset() {
 			player["tier"+i].multiplier = new Decimal(1);
 			player["tier"+i].bought = 0;
 		}
-		player.ls.amount = player.ls.amount.add(getLSAmount());
 		player.points = new Decimal(0);
 		player.ls.prestiged++;
 	}
