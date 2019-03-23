@@ -5,12 +5,61 @@
 		<script src="format.js"></script>
 		<script src="main.js"></script>
 		<script src="points.js"></script>
+		<script src="lineSegments.js"></script>
+		<script src="texts.js"></script>
 		<link rel="stylesheet" type="text/css" href="style.css">
+		<title>Geometry Idle</title>
 	</head>
 	<body onload="startInterval()">
-		<p>You have <span id="points">0</span> points</p>
-		<button onclick="player.points=player.points.plus(1)" class="button">Get points</button>
+		<button id="options" onclick="showTab('options')" class="button">Options</button>
+		<button id="genTab" onclick="showTab('generators')" class="button">Point Generators</button>
+		<button id="lineSegTab" onclick="showTab('lineSegUpgrades')" class="button" style="display:none">Line Segments</button>
+		<button id="dotTab" onclick="showTab('dotGenerators')" class="button" style="display:none">Dot Generators</button>
+		<button id="lineTab" onclick="showTab('lineTab')" class="button" style="display:none">Line Tree</button>
+		<div id='displayedSave' class="popup" style="display:none">
+			<div id='savePlace'> Save Goes Here
+			</div>
+			<button id="closeSaveWindow" onclick="document.getElementById('displayedSave').style.display='none'" class="button">Close</button>
+		</div>
+		<div id="spacing1" style="height: 20px;"> </div>
+		<div id='options' class='tab' style='display:none; text-align:center'>
+			<div id='savingstuff'>
+				<button id="saveButton" onclick="save()" class="button">Save Game</button>
+				<button id="clearSave" onclick="clearSave()" class="buttonlocked">Clear Save</button>
+				<button id="exportButton" onclick="exportSave()" class="button">Export Save</button>
+				<button id="importButton" onclick="importSave()" class="button">Import Save</button>
+				<button id="displaySave" onclick="displaySave()" class="button">Display Save</button>
+			</div>
+			<div>Choose your Notation</div>
+			<div id='notationstuff'>
+				<button id="stand" onclick="player.notation = 'Standard'" class="button">Standard</button>
+				<button id="sci" onclick="player.notation = 'Scientific'" class="button">Scientific</button>
+				<button id="mixsci" style="display:none" class="buttonlocked">Mixed Scientific</button>
+				<button id="engin" onclick="player.notation = 'Engineering'" class="button">Engineering</button>
+				<button id="mixengin" style="display:none" class="buttonlocked">Mixed Engineering</button>
+				<button id="hypersci" onclick="player.notation = 'Hyperscientific'" class="button">Hyperscientific</button>
+				<button id="aas" class="buttonlocked">AAS</button>
+			</div>
+			<div>
+				<button id="tet" style="display:none" class="buttonlocked">Tetration</button>
+				<button id="log" class="buttonlocked">Logarithm</button>
+				<button id="psi" style="display:none" class="buttonlocked">Psi</button>
+				<button id="hex" onclick="player.notation = 'Hexadecimal'" class="button">Hexadecimal</button>
+				<button id="infinity" class="buttonlocked">Infinity</button>
+				<button id="af5ln" onclick="player.notation = 'AF5LN'" class="button">AF5LN</button>
+			</div>
+			<div>
+				<button id="letters" onclick="player.notation = 'Letters'" class="button">Letters</button>
+				<button id="country" onclick="player.notation = 'Country Codes'" class="button">Country Codes</button>
+				<button id="brackets" onclick="player.notation = 'Brackets'" class="button">Brackets</button>
+				<button id="greek" onclick="player.notation = 'Greek'" class="button">Greek</button>
+				<button id="iroha" style="display:none" class="buttonlocked">Iroha</button>
+				<button id="emojis" onclick="player.notation = 'Emojis'" class="button">Emojis</button>
+			</div>
+		</div>
 		<div id='generators' class='tab' style='display:block'>
+			<p>You have <span id="points">0</span> points</p>
+			<button onclick="player.points=player.points.plus(1)" class="button">Get points</button>
 			<table style="width:100%">
 				<tbody id="parent">
 					<tr class='verylarge'>
@@ -72,7 +121,7 @@
 						</td>
 						<td align="right">
 							<button id="buy4Max" onclick="buyMaxGen(4)" align="right" class="button">Buy Max</button>
-						</td>
+							</td>
 					</tr>
 					<tr id="row5" style="display: none;">
 						<td>
@@ -143,13 +192,11 @@
 						<td align="right">
 							<button id="buy9Max" onclick="buyMaxGen(9)" align="right" class="button">Buy Max</button>
 						</td>
-					</tr>
-					<tr id="row10" style="display: none;">
+					</tr>					<tr id="row10" style="display: none;">
 						<td>
 							Tier 10 generator <span id="mult10">x1</span>
 						</td>
-						<td>
-							<div id="tier10Amount">0</div>
+						<td>							<div id="tier10Amount">0</div>
 						</td>
 						<td>
 							<button id="buy10" onclick="buyGen(10)" align="right" class="button">Cost: 1000</button>
@@ -161,13 +208,300 @@
 				</tbody>
 			</table>
 		</div>
-		<div id="prestige">
+		<div id="lineSegUpgrades" class="tab" style="display:none; text-align:center">
+			<div id="doubleUpgrades">
+				<div id="doubleRow1">
+					<button id="DT1" class="upgrade" onclick="buyUpgrade('DT1')">
+						Double Tier 1 production<br/>
+						Current Bonus: x<span id="T1DoubleCount">1</span><br/>
+						Cost: <span id="T1DoubleCost">10</span> line segments
+					</button>
+					<button id="DT2" class="upgrade" onclick="buyUpgrade('DT2')">
+						Double Tier 2 production<br/>
+						Current Bonus: x<span id="T2DoubleCount">1</span><br/>
+						Cost: <span id="T2DoubleCost">10</span> line segments
+					</button>
+					<button id="DT3" class="upgrade" onclick="buyUpgrade('DT3')">
+						Double Tier 3 production<br/>
+						Current Bonus: x<span id="T3DoubleCount">1</span><br/>
+						Cost: <span id="T3DoubleCost">10</span> line segments
+					</button>
+					<button id="DT4" class="upgrade" onclick="buyUpgrade('DT4')" style="display:none">
+						Double Tier 4 production<br/>
+						Current Bonus: x<span id="T4DoubleCount">1</span><br/>
+						Cost: <span id="T4DoubleCost">15</span> line segments
+					</button>
+					<button id="DT5" class="upgrade" onclick="buyUpgrade('DT5')" style="display:none">
+						Double Tier 5 production<br/>
+						Current Bonus: x<span id="T5DoubleCount">1</span><br/>
+						Cost: <span id="T5DoubleCost">20</span> line segments
+					</button>
+				</div>
+				<div id="doubleRow2">
+					<button id="DT6" class="upgrade" onclick="buyUpgrade('DT6')" style="display:none">
+						Double Tier 6 production<br/>
+						Current Bonus: x<span id="T6DoubleCount">1</span><br/>
+						Cost: <span id="T6DoubleCost">25</span> line segments
+					</button>
+					<button id="DT7" class="upgrade" onclick="buyUpgrade('DT7')" style="display:none">
+						Double Tier 7 production<br/>
+						Current Bonus: x<span id="T7DoubleCount">1</span><br/>
+						Cost: <span id="T7DoubleCost">30</span> line segments
+					</button>
+					<button id="DT8" class="upgrade" onclick="buyUpgrade('DT8')" style="display:none">
+						Double Tier 8 production<br/>
+						Current Bonus: x<span id="T8DoubleCount">1</span><br/>
+						Cost: <span id="T8DoubleCost">35</span> line segments
+					</button>
+					<button id="DT9" class="upgrade" onclick="buyUpgrade('DT9')" style="display:none">
+						Double Tier 9 production<br/>
+						Current Bonus: x<span id="T9DoubleCount">1</span><br/>
+						Cost: <span id="T9DoubleCost">40</span> line segments
+					</button>
+					<button id="DT10" class="upgrade" onclick="buyUpgrade('DT10')" style="display:none">
+						Double Tier 10 production<br/>
+						Current Bonus: x<span id="T10DoubleCount">1</span><br/>
+						Cost: <span id="T10DoubleCost">45</span> line segments
+					</button>
+				</div>
+			</div>
+			<div id="unlockUpgrades">
+				<button id="T4" class="upgrade" onclick="buyUpgrade('T4')">
+					Unlock Tier 4 generator<br/>
+					Cost: 60 line segments
+				</button>
+				<button id="T5" class="upgrade" onclick="buyUpgrade('T5')">
+					Unlock Tier 5 generator<br/>
+					Cost: 70 line segments
+				</button>
+				<button id="T6" class="upgrade" onclick="buyUpgrade('T6')">
+					Unlock Tier 6 generator<br/>
+					Cost: 80 line segments
+				</button>
+				<button id="T7" class="upgrade" onclick="buyUpgrade('T7')">
+					Unlock Tier 7 generator<br/>
+					Cost: 90 line segments
+				</button>
+				<button id="T8" class="upgrade" onclick="buyUpgrade('T8')">
+					Unlock Tier 8 generator<br/>
+					Cost: 100 line segments
+				</button>
+				<button id="T9" class="upgrade" onclick="buyUpgrade('T9')">
+					Unlock Tier 9 generator<br/>
+					Cost: 110 line segments
+				</button>
+				<button id="T10" class="upgrade" onclick="buyUpgrade('T10')">
+					Unlock Tier 10 generator<br/>
+					Cost: 120 line segments
+				</button>
+			</div>
+			<button id="DG" class="upgrade" onclick="buyUpgrade('DG')">
+				Unlock Dot Generators<br/>
+				Cost: 200 line segments
+			</button>
+		</div>
+		<div id="dotGenerators" class="tab" style="display:none">
+			<p>You have <span id="dots">0</span> dots producing a x<span id="dotBonus">1</span> bonus to all Point Generators</p>
+			<table style="width:100%">
+				<tbody id="parent">
+					<tr class='verylarge'>
+						<td colspan=4 align="right">
+							<button onclick="maxAllDots()" class="button" style="display:none">Max All</button>
+						</td>
+					</tr>
+					<tr id="dotRow1">
+						<td>
+							Tier 1 dot generator <span id="dotMult1">x1</span>
+						</td>
+						<td>
+							<div id="dotTier1Amount">0</div>
+						</td>
+						<td>
+							<button id="buyDot1" onclick="buyDot(1)" align="right" class="button">Cost: 10 LS</button>
+						</td>
+						<td align="right">
+							<button id="buyDot1Max" onclick="buyMaxDot(1)" align="right" class="button">Buy Max</button>
+						</td>
+					</tr>
+					<tr id="dotRow2" style="display: none;">
+						<td>
+							Tier 2 dot generator <span id="dotMult2">x1</span>
+						</td>
+						<td>
+							<div id="dotTier2Amount">0</div>
+						</td>
+						<td>
+							<button id="buyDot2" onclick="buyDot(2)" align="right" class="button">Cost: 100 LS</button>
+						</td>
+						<td align="right">
+							<button id="buyDot2Max" onclick="buyMaxDot(2)" align="right" class="button">Buy Max</button>
+						</td>
+					</tr>
+					<tr id="dotRow3" style="display: none;">
+						<td>
+							Tier 3 dot generator <span id="dotMult3">x1</span>
+						</td>
+						<td>
+							<div id="dotTier3Amount">0</div>
+						</td>
+						<td>
+							<button id="buyDot3" onclick="buyDot(3)" align="right" class="button">Cost: 1000 LS</button>
+						</td>
+						<td align="right">
+							<button id="buyDot3Max" onclick="buyMaxDot(3)" align="right" class="button">Buy Max</button>
+						</td>
+					</tr>
+					<tr id="dotRow4" style="display: none;">
+						<td>
+							Tier 4 dot generator <span id="dotMult4">x1</span>
+						</td>
+						<td>
+							<div id="dotTier4Amount">0</div>
+						</td>
+						<td>
+							<button id="buyDot4" onclick="buyDot(4)" align="right" class="button">Cost: blef</button>
+						</td>
+						<td align="right">
+							<button id="buyDot4Max" onclick="buyMaxDot(4)" align="right" class="button">Buy Max</button>
+							</td>
+					</tr>
+					<tr id="dotRow5" style="display: none;">
+						<td>
+							Tier 5 dot generator <span id="dotMult5">x1</span>
+						</td>
+						<td>
+							<div id="dotTier5Amount">0</div>
+						</td>
+						<td>
+							<button id="buyDot5" onclick="buyDot(5)" align="right" class="button">Cost: 1000</button>
+						</td>
+						<td align="right">
+							<button id="buyDot5Max" onclick="buyMaxDot(5)" align="right" class="button">Buy Max</button>
+						</td>
+					</tr>
+					<tr id="dotRow6" style="display: none;">
+						<td>
+							Tier 6 dot generator <span id="dotMult6">x1</span>
+						</td>
+						<td>
+							<div id="dotTier6Amount">0</div>
+						</td>
+						<td>
+							<button id="buyDot6" onclick="buyDot(6)" align="right" class="button">Cost: 1000</button>
+						</td>
+						<td align="right">
+							<button id="buyDot6Max" onclick="buyMaxDot(6)" align="right" class="button">Buy Max</button>
+						</td>
+					</tr>
+					<tr id="dotRow7" style="display: none;">
+						<td>
+							Tier 7 dot generator <span id="dotMult7">x1</span>
+						</td>
+						<td>
+							<div id="dotTier7Amount">0</div>
+						</td>
+						<td>
+							<button id="buyDot7" onclick="buyDot(7)" align="right" class="button">Cost: 1000</button>
+						</td>
+						<td align="right">
+							<button id="buyDot7Max" onclick="buyMaxDot(7)" align="right" class="button">Buy Max</button>
+						</td>
+					</tr>
+					<tr id="dotRow8" style="display: none;">
+						<td>
+							Tier 8 dot generator <span id="dotMult8">x1</span>
+						</td>
+						<td>
+							<div id="dotTier8Amount">0</div>
+						</td>
+						<td>
+							<button id="buyDot8" onclick="buyDot(8)" align="right" class="button">Cost: 1000</button>
+						</td>
+						<td align="right">
+							<button id="buyDot8Max" onclick="buyMaxDot(8)" align="right" class="button">Buy Max</button>
+						</td>
+					</tr>
+					<tr id="dotRow9" style="display: none;">
+						<td>
+							Tier 9 dot generator <span id="dotMult9">x1</span>
+						</td>
+						<td>
+							<div id="dotTier9Amount">0</div>
+						</td>
+						<td>
+							<button id="buyDot9" onclick="buyDot(9)" align="right" class="button">Cost: 1000</button>
+						</td>
+						<td align="right">
+							<button id="buyDot9Max" onclick="buyMaxDot(9)" align="right" class="button">Buy Max</button>
+						</td>
+					</tr>
+					<tr id="dotRow10" style="display: none;">
+						<td>
+							Tier 10 dot generator <span id="dotMult10">x1</span>
+						</td>
+						<td>
+							<div id="dotTier10Amount">0</div>
+						</td>
+						<td>
+							<button id="buyDot10" onclick="buyDot(10)" align="right" class="button">Cost: 1000</button>
+						</td>
+						<td align="right">
+							<button id="buyDot10Max" onclick="buyMaxDot(10)" align="right" class="button">Buy Max</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div id="lineTab" class="tab" style="text-align: center">
+			<div class="flex-container">
+				<div class="inner-container">
+					<button id="11" class="upgrade" onclick="buyTreeItem('11')">
+						<span id="texts">Multiply line segments from all sources by 3<br/>
+							Cost: 1 Line
+						</span>
+					</button>
+					<button id="12" class="upgrade" onclick="buyTreeItem('12')">
+						<span id="texts">Point Generators gain a bonus based on Line Extensions<br/>
+							Current Bonus: x<span id="12Bonus">1</span><br/>
+							Cost: 1 Line
+						</span>
+					</button>
+				</div>
+				<div id="t12" class="transition vert">\ \_______________________________/ /<br/>V</div>
+				<button id="21" class="upgrade" onclick="buyTreeItem('21')">
+					<span id="texts">All Generators are stronger based on Generators bought<br/>
+					Current Bonus: x<span id="21Bonus">1</span><br/>
+						Cost: 12 Lines</span>
+				</button>
+				<div id="t23" class="transition vert">|<br/>V</div>
+				<button id="31" class="upgrade" onclick="buyTreeItem('31')">
+					<span id="texts">Buying 25 of a Generator powers up that Generator by 1.1x<br/>
+						Cost: 50 Lines</span>
+				</button>
+				<div id="t34" class="transition vert">|<br/>V</div>
+				<button id="41" class="upgrade" onclick="buyTreeItem('41')">
+					<span id="texts">You get more Line Segments based on Generators bought<br/>
+						Current Bonus: x<span id="41Bonus">1</span><br/>
+						Cost: 250 Lines</span>
+				</button>
+			</div>
+		</div>
+		<div id="spacing2" style="height: 20px;"> </div>
+		<div id="prestige" style="text-align:center">
 			<button id="lsButton" align="center" style="display: none;" class="button" onclick="pointReset()">
 				Raise your points to<br/>
 				a higher dimension<br/>
 				Gain <span id="LSOnPrestige">0</span> line segments
 			</button>
-			<p id="lineSegments" style="display: none;">You have <span id="lsAmount">0</span> line segments</p>
+			<button id="lButton" align="center" style="display: none;" class="button" onclick="lineSegmentReset()">
+				Combine your segments<br/>
+				into a stronger form<br/>
+				Gain <span id="LOnPrestige">0</span> lines
+			</button>
+			<div>
+				<p id="lineSegments" style="display: none;">You have <span id="lsAmount">0</span> line segments</p>
+				<p id="lines" style="display: none">You have <span id="lAmount">0</span> lines</p>
+			</div>
 		</div>
 	</body>
 </html>

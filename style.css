@@ -1,9 +1,7 @@
 .button {
-  background: #F2F2F2;
-	height: auto;
+  	background: #F2F2F2;
 	line-height: 21px;
 	text-align: center;
-	width: auto;
 	border: 1px solid #127A20;
 	border-radius: 4px;
 	padding: 5px;
@@ -11,6 +9,25 @@
 	transition-duration: 0.2s;
 }
 .button:hover {
+	color: #FFFFFF;
+	background: #5AC467;
+}
+.upgrade {
+	width: 200px;
+	height: 100px;
+	background: #F2F2F2;
+	line-height: 21px;
+	text-align: center;
+	border: 1px solid #127A20;
+	border-radius: 4px;
+	padding: 5px;
+	color: #000000;
+	transition-duration: 0.2s;
+}
+.upgrade:hover {
+	background: #5AC467;
+}
+.purchased{
 	color: #FFFFFF;
 	background: #5AC467;
 }
@@ -29,4 +46,52 @@
 .buttonlocked:hover {
 	color: #000000;
 	background: #B84B5F;
+}
+.popup {
+	border: 1px solid #B84B5F;
+	border-radius: 4px;
+	padding: 5px;
+	transition-duration: 0.2s;
+	text-align:center; 
+	position: fixed; 
+	top: 50%; 
+	left: 50%; 
+	transform: translate(-50%, -50%);
+	background: #FFFFFF;
+	font-size: 8px;
+}
+//Line Tree Button Placements
+.flex-container {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.inner-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	text-align: center;
+	width: 50%;
+	margin: 10px;
+	transform: translate(48.5%);
+}
+
+.transition {
+	background-color: #D3D3D3;
+	text-align: center;
+	align-self: center;
+}
+
+.vert {
+	line-height: 20px;
+	width: 100%;
+	height: 40px;
+	background: #FFFFFF;
+}
+
+.horiz {
+	line-height: 20px;
+	width: 60px;
+	height: 20px;
 }
